@@ -1,0 +1,113 @@
+  .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .form-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            color: #222;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #0B6E4F;
+        }
+
+        .current-file {
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .current-file a {
+            color: #0B6E4F;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .update-btn {
+            background: #0B6E4F;
+            color: white;
+        }
+
+        .update-btn:hover {
+            background: #095c42;
+        }
+
+        .cancel-btn {
+            background: #6c757d;
+            color: white;
+        }
+
+        .cancel-btn:hover {
+            background: #555b61;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 92%;
+                margin: 20px auto;
+                padding: 0;
+            }
+
+            .form-box {
+                padding: 20px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }

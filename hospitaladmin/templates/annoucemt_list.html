@@ -1,0 +1,159 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Announcements</title>
+    <link rel="stylesheet" href="{%static 'accment_list.css' %}">
+
+
+</head>
+
+<body>
+
+
+    <div class="dashboard-top">
+
+        <div class="header-div">
+            <h2>RAG Multispeciality Hospital</h2>
+            <p>Hospital Administration Dashboard</p> <br>
+
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="div-manu">
+
+        <div class="inner-div">
+            <a href="{% url 'Admin_home' %}">Dashboard</a>
+            <a href="{%url 'admin_register' %}">Register</a>
+            <a href="{%url 'dept_dashboard'%}">Departments</a>
+            <a href="">Patients</a>
+            <a href="{%url 'add_doctors'%}">Doctors</a>
+
+            <a href="">Billing</a>
+        </div>
+
+
+
+
+    </div> <br>
+
+    <div class="container">
+
+        <div class="header">
+
+            <h2>📢 Announcements</h2>
+
+            <a href="{% url 'create_announcement' %}" class="add-btn">
+                + Create Announcement
+            </a>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Message</th>
+                        <th>Recipient</th>
+                        <th>Priority</th>
+                        <th>Attachment</th>
+                        <th>Created By</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    
+                    </tr>
+                </thead>
+
+
+                <tbody>
+
+                    {% for list in list %}
+
+                    <tr>
+
+                        <td>{{ forloop.counter }}</td>
+
+                        <td>
+                            <strong>{{ list.title }}</strong>
+                        </td>
+
+                        <td>
+                            {{ list.message|truncatewords:15 }}
+                        </td>
+
+                        <td>
+                            {{ list.get_recipient_display }}
+                        </td>
+
+                        <td>
+
+                            <span class="priority {{ annc.priority }}">
+                                {{ list.get_priority_display }}
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            {% if list.attachment %}
+
+                            <a href="{{ annc.attachment.url }}" target="_blank" class="attachment">
+                                View File
+                            </a>
+
+                            {% else %}
+
+                            No File
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+                            {{ list.created_by }}
+                        </td>
+
+                        <td>
+                            {{ list.created_at|date:"d M Y" }}
+                        </td>
+                        <td> <a href="{% url 'edit_announcement' list.id %}" class="edit-btn">
+                                Edit
+                            </a> <a href="{%url 'delete_announcement' list.id %}" class="delete-btn">Delete</a></td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="8" class="no-data">
+                            No announcements available.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

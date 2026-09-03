@@ -1,0 +1,197 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor|List</title>
+    <link rel="stylesheet" href="{% static 'doctors/doctor_list.css' %}">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="">Present DR.S</a>
+
+            </div>
+        </div>
+    </div><br>
+    <div class="doctor-list-container">
+
+        <!-- Header -->
+        <div class="doctor-list-header">
+
+            <div>
+                <h2>Doctors</h2>
+                <p>Manage all doctors registered in the hospital.</p>
+            </div>
+
+            <a href="{% url 'add_doctors' %}" class="add-doctor-btn">
+                + Add Doctor
+            </a>
+
+        </div>
+
+
+        <!-- Doctor List -->
+
+        <div class="doctor-table-container">
+
+
+
+            <table class="doctor-table">
+
+                <thead>
+                    <tr>
+                        <th>Doctor</th>
+                        <th>Specialization</th>
+                        <th>Department</th>
+                        <th>Qualification</th>
+                        <th>Experience</th>
+                        <th>Phone</th>
+                        <th>Fee</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+
+                    {% for doctor in dr_list %}
+
+                    <tr>
+
+                        <!-- Doctor -->
+                        <td>
+                            <div class="doctor-info">
+
+                                {% if doctor.profile_image %}
+
+                                <img src="{{ doctor.profile_image.url }}" alt="Doctor" class="doctor-image">
+
+                                {% else %}
+
+                                <div class="doctor-placeholder">
+                                    👨‍⚕️
+                                </div>
+
+                                {% endif %}
+
+
+                                <div>
+                                    <strong>
+                                        Dr. {{ doctor.first_name }}
+                                        {{ doctor.last_name }}
+                                    </strong>
+
+                                    <small>
+                                        ID: {{ doctor.doctor_id }}
+                                    </small>
+                                </div>
+
+                            </div>
+                        </td>
+
+
+                        <!-- Specialization -->
+                        <td>
+                            {{ doctor.specialization }}
+                        </td>
+
+
+                        <!-- Department -->
+                        <td>
+                            {{ doctor.department }}
+                        </td>
+
+
+                        <!-- Qualification -->
+                        <td>
+                            {{ doctor.qualification }}
+                        </td>
+
+
+                        <!-- Experience -->
+                        <td>
+                            {{ doctor.experience }} Years
+                        </td>
+
+
+                        <!-- Phone -->
+                        <td>
+                            {{ doctor.phone }}
+                        </td>
+
+
+                        <!-- Fee -->
+                        <td>
+                            ₹{{ doctor.consultation_fee }}
+                        </td>
+
+
+                        <!-- Status -->
+                        <td>
+
+                            {% if doctor.status == "Active" %}
+
+                            <span class="doctor-status active">
+                                Active
+                            </span>
+
+                            {% else %}
+
+                            <span class="doctor-status inactive">
+                                Inactive
+                            </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <!-- Actions -->
+                        <td>
+
+                            <div class="doctor-actions">
+
+                                <a href="{% url 'update_dr'%}">Update</a>
+
+                                <a href="{% url 'view_dr' doctor.doctor_id %}" class="view-btn">
+                                    View
+                                </a>
+                                <a href="{% url 'delete_dr'  doctor.doctor_id %}" class="delete-btn">Delete</a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+
+
+
+
+
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View|Doctor</title>
+    <link rel="stylesheet" href="{% static 'doctors/view_dr.css' %}">
+</head>
+<body>
+  <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="">Present DR.S</a>
+
+            </div>
+        </div>
+    </div><br>
+
+    <div class="doctor-detail-container">
+
+    <div class="doctor-detail-header">
+        <h2>Doctor Information</h2>
+        <p>Complete information about the doctor.</p>
+    </div>
+
+
+    <!-- Personal Information -->
+
+    <div class="detail-section">
+
+        <h3>Personal Information</h3>
+
+        <div class="detail-grid">
+
+            <div class="detail-item">
+                <span>Doctor ID</span>
+                <strong>{{ doctor.id }}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>First Name</span>
+                <strong>{{ doctor.first_name }}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Last Name</span>
+                <strong>{{ doctor.last_name }}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Gender</span>
+                <strong>{{ doctor.gender }}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Date of Birth</span>
+                <strong>{{ doctor.date_of_birth }}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Phone</span>
+                <strong>{{ doctor.phone }}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Email</span>
+                <strong>{{ doctor.email }}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Address</span>
+                <strong>{{ doctor.address }}</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Professional Information -->
+
+    <div class="detail-section">
+
+        <h3>Professional Information</h3>
+
+        <div class="detail-grid">
+
+            <div class="detail-item">
+                <span>Department</span>
+                <strong>{{ doctor.department }}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Specialization</span>
+                <strong>{{ doctor.specialization }}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Qualification</span>
+                <strong>{{ doctor.qualification }}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Experience</span>
+                <strong>{{ doctor.experience }}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>License Number</span>
+                <strong>{{ doctor.license_number }}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Joining Date</span>
+                <strong>{{ doctor.joining_date }}</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Account Information -->
+
+    <div class="detail-section">
+
+        <h3>Account Information</h3>
+
+        <div class="detail-grid">
+
+            <div class="detail-item">
+                <span>Room.No</span>
+                <strong>{{doctor.room_no}}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Status:</span>
+                <strong>{{doctor.status}}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Consultation Fee:</span>
+                <strong>{{doctor.consultation_fee}}</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Available Days:</span>
+                <strong>{{ doctor.available_days }}</strong>
+            </div>
+            <div>
+                <span>Start Time:</span>
+                <strong>{{doctor.start_time}}</strong>
+            </div>
+            <div>
+                <span>End Time:</span>
+                <strong>{{doctor.end_time}}</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="detail-actions">
+
+        <a href="{% url 'doctor_list' %}" class="back-btn">
+            Back
+        </a>
+
+
+
+    </div>
+
+</div>
+</body>
+</html>

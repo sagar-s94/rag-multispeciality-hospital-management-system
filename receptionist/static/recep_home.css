@@ -1,0 +1,426 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background: whitesmoke;
+}
+.navbar{
+    width:100%;
+    background:#0A3532;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 3%;
+    color:white;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+/* Logo */
+
+/* Desktop */
+.image-div img{
+    width: 250px;
+    height: 75px;
+    /* object-fit: contain; */
+}
+
+/* Tablet */
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .image-div img{
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* Mobile */
+@media (max-width:480px){
+
+    .image-div img{
+        width: 140px;
+        height: 140px;
+    }
+}
+
+.image-div{
+    flex-shrink: 0;
+}
+
+.image-div img{
+    display: block;
+    max-width: 100%;
+    /* object-fit: contain; */
+}
+
+/* Hospital Name */
+
+.innerdiv-one h2{
+    font-size: 40px;
+    font-weight: 700;
+    color:white ;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.innerdiv-one p{
+    font-size: 18px;
+    color: #A8E6CF;          /* Light green */
+    margin-top: 6px;
+    letter-spacing: 4px;     /* Space between letters */
+    text-transform: uppercase;
+    font-weight: 500;
+}
+@media (max-width: 768px){
+    .innerdiv-one h2{
+        font-size: 36px;
+    }
+
+    .innerdiv-one p{
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+}
+
+/* Links */
+
+.links{
+    display:flex;
+    gap:18px;
+}
+
+.links a{
+    text-decoration:none;
+    color:white;
+    padding:10px 22px;
+    border:2px solid white;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.links a:hover{
+    background:white;
+    color:#0B6E4F;
+}
+
+
+/* Tablet */
+
+
+@media(max-width:992px){
+
+    .innerdiv-one h2{
+        font-size:24px;
+    }
+
+    .image-div img{
+        width:55px;
+        height:55px;
+    }
+
+    .links a{
+        padding:8px 18px;
+        font-size:15px;
+    }
+
+}
+
+
+/* Mobile */
+
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+        padding:18px;
+    }
+
+    .innerdiv-one{
+        padding-left:0;
+    }
+
+    .innerdiv-one h2{
+        font-size:22px;
+    }
+
+    .links{
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .links a{
+        padding:10px 20px;
+        font-size:15px;
+    }
+
+}
+
+/* Extra Small Devices */
+
+@media(max-width:480px){
+
+    .image-div img{
+        width:50px;
+        height:50px;
+    }
+
+    .innerdiv-one h2{
+        font-size:18px;
+        line-height:28px;
+    }
+
+    .links{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .links a{
+        width:200px;
+        margin:auto;
+    }
+
+}
+
+/* Container */
+.dashboard-cards{
+    width: 90%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* Card */
+.card{
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Heading */
+.card h2{
+    color: #0A3532;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Button */
+.card a{
+    display: inline-block;
+    text-decoration: none;
+    background: #0A3532;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.card a:hover{
+    background: #0f4b46;
+}
+
+/* Tablet */
+@media (max-width: 992px){
+    .dashboard-cards{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card h2{
+        font-size: 22px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px){
+    .dashboard-cards{
+        width: 95%;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card{
+        padding: 20px;
+    }
+
+    .card h2{
+        font-size: 20px;
+    }
+
+    .card a{
+        width: 100%;
+        padding: 12px;
+        box-sizing: border-box;
+    }
+}
+
+
+
+
+.dashboard-footer{
+    width:100%;
+    background:#0A3532;
+    color:#fff;
+    text-align:center;
+    padding:12px 20px;
+    font-size:14px;
+    margin-top:30px;
+}
+
+.dashboard-footer p{
+    margin:0;
+    letter-spacing:0.5px;
+}
+
+@media (max-width:768px){
+    .dashboard-footer{
+        font-size:13px;
+        padding:10px;
+    }
+}
+
+.form-div1{
+    width: 100%;
+    padding: 20px;
+}
+
+.form-div1 form{
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label{
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color: #0A3532;
+    box-shadow: 0 0 5px rgba(10,53,50,.2);
+}
+
+.form-group textarea{
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Symptoms field takes full width */
+.form-group:nth-child(10){
+    grid-column: 1 / -1;
+}
+
+/* Button */
+.form-div1 button{
+    grid-column: 1 / -1;
+    width: 200px;
+    padding: 12px;
+    background: #0A3532;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.form-div1 button:hover{
+    background: #07504b;
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width:768px){
+
+    .form-div1 form{
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .form-group:nth-child(10){
+        grid-column: auto;
+    }
+
+    .form-div1 button{
+        width: 100%;
+    }
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:480px){
+
+    .form-div1{
+        padding: 10px;
+    }
+
+    .form-div1 form{
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea{
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .form-div1 button{
+        font-size: 15px;
+        padding: 11px;
+    }
+}

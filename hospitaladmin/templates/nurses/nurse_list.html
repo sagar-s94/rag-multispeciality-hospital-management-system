@@ -1,0 +1,212 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurse|List</title>
+    <link rel="stylesheet" href="{%static 'nurse/nurse_list.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+
+
+            </div>
+        </div>
+    </div><br>
+
+    <div class="nurse-container">
+
+        <!-- Header -->
+        <div class="nurse-header">
+
+            <div>
+                <h2>Nursing Staff</h2>
+                <p>Manage all nursing staff members.</p>
+            </div>
+
+            <a href="{% url 'add_nurse' %}" class="add-nurse-btn">
+                + Add Nurse
+            </a>
+
+        </div>
+
+
+        <!-- Nurse Table -->
+        <div class="table-container">
+
+            <table class="nurse-table">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Profile</th>
+                        <th>Name</th>
+                        <th>Registration No.</th>
+                        <th>Qualification</th>
+                        <th>Designation</th>
+                        <th>Department</th>
+                        <th>Ward</th>
+                        <th>Shift</th>
+                        <th>Phone</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for nurses in nurses %}
+
+                    <tr>
+
+                        <td>
+                            {{ nurse.id }}
+                        </td>
+
+                        <!-- Profile -->
+                        <td>
+
+                            {% if nurses.profile_image %}
+
+                            <img src="{{ nurses.profile_image.url }}" alt="{{ nurses.first_name }}" class="nurse-image">
+
+                            {% else %}
+
+                            <div class="nurse-placeholder">
+                                {{ nurses.first_name|first }}
+                            </div>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <!-- Name -->
+                        <td>
+                            <strong>
+                                {{ nurses.first_name }}
+                                {{ nurses.last_name }}
+                            </strong>
+                        </td>
+
+
+                        <!-- Registration -->
+                        <td>
+                            {{ nurses.registration_no }}
+                        </td>
+
+
+                        <!-- Qualification -->
+                        <td>
+                            {{ nurses.qualification }}
+                        </td>
+
+
+                        <!-- Designation -->
+                        <td>
+                            {{ nurses.designation }}
+                        </td>
+
+
+                        <!-- Department -->
+                        <td>
+                            {{ nurses.department }}
+                        </td>
+
+
+                        <!-- Ward -->
+                        <td>
+                            {{ nurses.ward }}
+                        </td>
+
+
+                        <!-- Shift -->
+                        <td>
+                            {{ nurses.shift }}
+                        </td>
+
+
+                        <!-- Phone -->
+                        <td>
+                            {{ nurses.phone }}
+                        </td>
+
+
+                        <!-- Status -->
+                        <td>
+
+                            {% if nurses.status == "Active" %}
+
+                            <span class="status active">
+                                Active
+                            </span>
+
+                            {% elif nurses.status == "On Leave" %}
+
+                            <span class="status leave">
+                                On Leave
+                            </span>
+
+                            {% else %}
+
+                            <span class="status inactive">
+                                Inactive
+                            </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <!-- Actions -->
+                        <td>
+
+                            <div class="action-buttons">
+
+                                <a href="{% url 'nurse-view' nurses.id %}">
+                                    View
+                                </a>
+<a href="{%url 'update_nurse' %}">Update</a>
+
+
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+
+                        <td colspan="12" class="no-data">
+                            No nursing staff found.
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

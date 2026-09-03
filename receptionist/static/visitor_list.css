@@ -1,0 +1,362 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background: whitesmoke;
+}
+.navbar{
+    width:100%;
+    background:#0A3532;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 3%;
+    color:white;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+/* Logo */
+
+/* Desktop */
+.image-div img{
+    width: 250px;
+    height: 75px;
+    /* object-fit: contain; */
+}
+
+/* Tablet */
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .image-div img{
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* Mobile */
+@media (max-width:480px){
+
+    .image-div img{
+        width: 140px;
+        height: 140px;
+    }
+}
+
+.image-div{
+    flex-shrink: 0;
+}
+
+.image-div img{
+    display: block;
+    max-width: 100%;
+    /* object-fit: contain; */
+}
+
+/* Hospital Name */
+
+.innerdiv-one h2{
+    font-size: 40px;
+    font-weight: 700;
+    color:white ;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.innerdiv-one p{
+    font-size: 18px;
+    color: #A8E6CF;          /* Light green */
+    margin-top: 6px;
+    letter-spacing: 4px;     /* Space between letters */
+    text-transform: uppercase;
+    font-weight: 500;
+}
+@media (max-width: 768px){
+    .innerdiv-one h2{
+        font-size: 36px;
+    }
+
+    .innerdiv-one p{
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+}
+
+/* Links */
+
+.links{
+    display:flex;
+    gap:18px;
+}
+
+.links a{
+    text-decoration:none;
+    color:white;
+    padding:10px 22px;
+    border:2px solid white;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.links a:hover{
+    background:white;
+    color:#0B6E4F;
+}
+
+
+/* Tablet */
+
+
+@media(max-width:992px){
+
+    .innerdiv-one h2{
+        font-size:24px;
+    }
+
+    .image-div img{
+        width:55px;
+        height:55px;
+    }
+
+    .links a{
+        padding:8px 18px;
+        font-size:15px;
+    }
+
+}
+
+
+/* Mobile */
+
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+        padding:18px;
+    }
+
+    .innerdiv-one{
+        padding-left:0;
+    }
+
+    .innerdiv-one h2{
+        font-size:22px;
+    }
+
+    .links{
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .links a{
+        padding:10px 20px;
+        font-size:15px;
+    }
+
+}
+
+/* Extra Small Devices */
+
+@media(max-width:480px){
+
+    .image-div img{
+        width:50px;
+        height:50px;
+    }
+
+    .innerdiv-one h2{
+        font-size:18px;
+        line-height:28px;
+    }
+
+    .links{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .links a{
+        width:200px;
+        margin:auto;
+    }
+
+}
+.search-box{
+    margin:20px 0;
+}
+
+.search-box form{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.search-box input,
+.search-box select{
+    flex:1;
+    min-width:200px;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+}
+
+.search-box input:focus,
+.search-box select:focus{
+    border-color:#0A3532;
+}
+
+.search-box button{
+    background:#0A3532;
+    color:white;
+    border:none;
+    padding:12px 30px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.search-box button:hover{
+    background:#12645e;
+}
+
+/* ===========================
+   Table
+=========================== */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    min-width:1100px;
+}
+
+thead{
+    background:#0A3532;
+    color:white;
+}
+
+th,
+td{
+    padding:12px;
+    text-align:center;
+    border:1px solid #ddd;
+    font-size:14px;
+}
+
+tbody tr:nth-child(even){
+    background:#f8f8f8;
+}
+
+tbody tr:hover{
+    background:#eaf5f4;
+}
+
+.visitor-list-container{
+    overflow-x:auto;
+}
+
+/* ===========================
+   Action Buttons
+=========================== */
+
+td a{
+    text-decoration:none;
+    padding:7px 12px;
+    border-radius:5px;
+    color:white;
+    font-size:13px;
+    margin:2px;
+    display:inline-block;
+}
+
+td a:first-child{
+    background:#007bff;
+}
+
+td a:first-child:hover{
+    background:#0056b3;
+}
+
+td a:last-child{
+    background:#dc3545;
+}
+
+td a:last-child:hover{
+    background:#b02a37;
+}
+
+/* ===========================
+   Heading
+=========================== */
+
+.visitor-list-container h2{
+    color:#0A3532;
+    margin-bottom:15px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full-width{
+        grid-column:1;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .visitor-form-container,
+    .visitor-list-container{
+        width:98%;
+        padding:20px;
+    }
+
+    .search-box form{
+        flex-direction:column;
+    }
+
+    .search-box input,
+    .search-box select,
+    .search-box button{
+        width:100%;
+    }
+
+    .form-header h2{
+        font-size:24px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    th,
+    td{
+        padding:10px;
+        font-size:12px;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+}

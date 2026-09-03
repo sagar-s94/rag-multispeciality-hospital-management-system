@@ -1,0 +1,190 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPD|List</title>
+    <link rel="stylesheet" href="{%static 'ipd_list.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="{%url 'request_list' %}">Rqt List</a>
+               <a href="{% url 'doctor_logout' %}" >
+                    Logout
+                </a>
+
+            </div>
+        </div>
+    </div> <br>
+
+    <div class="ipd-container">
+        <div>
+            <form method="GET" class="ipd-search-form">
+
+                <input type="text" name="search" id="search" value="{{ search }}" placeholder="Search Patient by Name">
+
+                <button type="submit">
+                    🔍 Search
+                </button>
+
+                {% if search %}
+                <a href="{% url 'ipd_patient_list' %}" class="clear-search">
+                    Clear
+                </a>
+                {% endif %}
+
+            </form>
+        </div>
+        <!-- Header -->
+        <div class="ipd-header">
+
+            <div>
+                <h2>IPD Patients</h2>
+                <p>
+                    Patients admitted in {{ request.user.get_department_display }} Department
+                </p>
+            </div>
+
+            <div class="patient-count">
+                {{ ipd_list.count }} Patients
+            </div>
+
+        </div>
+
+
+        <!-- Patient Table -->
+        <div class="table-wrapper">
+
+            <table class="ipd-table">
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Patient ID</th>
+                        <th>Patient Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Department</th>
+                        <th>Room</th>
+                        <th>Bed</th>
+                        <th>Admission Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th>Request</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+
+                    {% for patient in ipd_list %}
+
+                    <tr>
+
+                        <td>
+                            {{ forloop.counter }}
+                        </td>
+
+                        <td>
+                            {{ patient.id }}
+                        </td>
+
+                        <td>
+                            <strong>
+                                {{ patient.first_name }}
+                            </strong>
+                        </td>
+
+                        <td>
+                            {{ patient.age }}
+                        </td>
+
+                        <td>
+                            {{ patient.gender }}
+                        </td>
+
+                        <td>
+                            {{ patient.department }}
+                        </td>
+
+                        <td>
+                            {{ patient.room_no }}
+                        </td>
+
+                        <td>
+                            {{ patient.bed_no }}
+                        </td>
+
+                        <td>
+                            {{ patient.admission_date|date:"d M Y" }}
+                        </td>
+
+                        <td>
+
+                            {% if patient.status == "Admitted" %}
+
+                            <span class="status-badge admitted">
+                                Admitted
+                            </span>
+
+                            {% elif patient.status == "Discharged" %}
+
+                            <span class="status-badge discharged">
+                                Discharged
+                            </span>
+
+                            {% else %}
+
+                            <span class="status-badge">
+                                {{ patient.status }}
+                            </span>
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+
+                            <a href="{% url 'edit_general_ipd' patient.id %}" class="view-btn">
+                                View
+                            </a>
+
+                        </td>
+                        <td>
+                            <a href="{%url 'make_request' %}" class="make-request-btn">Make Request</a>
+                        </td>
+                    </tr>
+
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="11" class="no-patient">
+                            🏥 No IPD patients found in your department.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background-color: whitesmoke;
+}
+
+.dashboard-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0A3532;
+    padding: 10px;
+    color: white;
+    gap: 10px;
+}
+
+@media (max-width:685px) {
+    .dashboard-top {
+        justify-content: center;
+        gap: 0px;
+        align-items: flex-start;
+    }
+
+}
+
+.header-div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+@media (max-width:685px) {
+    .header-div {
+        gap: 0px;
+        justify-content: flex-start;
+    }
+
+}
+
+.header-div h2 {
+    color: white;
+    letter-spacing: 5px;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+@media (max-width:685px) {
+    .header-div h2 {
+        letter-spacing: 2px;
+        font-size: large;
+        font-weight: 700;
+    }
+
+}
+
+
+.header-div p {
+    padding: 10px;
+    letter-spacing: 5px;
+    color: #A8E6CF;
+}
+
+@media (max-width:685px) {
+    .header-div p {
+        letter-spacing: 2px;
+
+
+    }
+
+}
+
+.div-manu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #0A3532;
+    color: white;
+    text-decoration: none;
+    gap: 0px;
+}
+
+.div-manu a {
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    font-weight: 500;
+}
+
+.inner-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 70px;
+}
+
+@media (max-width:685px) {
+    .inner-div {
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+    }
+
+}
+
+.container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .header h2 {
+            color: #222;
+        }
+
+        .add-btn {
+            background: #0B6E4F;
+            color: white;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+        }
+
+        .add-btn:hover {
+            background: #095c42;
+        }
+
+        .table-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #0B6E4F;
+            color: white;
+        }
+
+        tr:hover {
+            background: #f8f8f8;
+        }
+
+        .priority {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .normal {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .important {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .urgent {
+            background: #f8d7da;
+            color: #842029;
+        }
+
+        .attachment {
+            color: #0B6E4F;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 92%;
+                margin: 20px auto;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .add-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+.edit-btn,
+.delete-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 2px;
+}
+
+.edit-btn {
+    background: #0B6E4F;
+    color: white;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #095c42;
+}
+
+.delete-btn:hover {
+    background: #b02a37;
+}

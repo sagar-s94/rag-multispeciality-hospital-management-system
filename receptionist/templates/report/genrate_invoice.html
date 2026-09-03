@@ -1,0 +1,179 @@
+
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPD Invoice</title>
+
+    <link rel="stylesheet" href="{% static 'gen_invoice.css' %}">
+</head>
+<body>
+<div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="{%url 'add_opd'%}">OPD</a>
+
+            </div>
+        </div>
+    </div> <br>
+<div class="invoice-container">
+
+    <div class="invoice-header">
+
+        <div class="hospital">
+            <h1>RAG Multispeciality Hospital</h1>
+            <p>Chandigarh, India</p>
+            <p>Phone : +91-9876543210</p>
+            <p>Email : info@raghospital.com</p>
+        </div>
+
+        <div class="invoice-title">
+            <h2>OPD INVOICE</h2>
+            <p><strong>Date :</strong> {% now "d-m-Y" %}</p>
+            <p><strong>Invoice No :</strong> INV{{ patient.patient_id }}</p>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <h3>Patient Information</h3>
+
+    <table class="patient-table">
+
+        <tr>
+            <td><strong>Patient ID</strong></td>
+            <td>{{ patient.patient_id }}</td>
+
+            <td><strong>Patient Name</strong></td>
+            <td>{{ patient.patient_name }}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Age</strong></td>
+            <td>{{ patient.age }}</td>
+
+            <td><strong>Gender</strong></td>
+            <td>{{ patient.gender }}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Mobile</strong></td>
+            <td>{{ patient.mobile }}</td>
+
+            <td><strong>Department</strong></td>
+            <td>{{ patient.department }}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Doctor</strong></td>
+            <td>{{ patient.doctor }}</td>
+
+            <td><strong>Visit Type</strong></td>
+            <td>{{ patient.visit_type }}</td>
+        </tr>
+
+    </table>
+
+    <br>
+
+    <h3>Billing Details</h3>
+
+    <table class="bill-table">
+
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Amount (₹)</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>OPD Registration Fee</td>
+                <td>{{ patient.registration_fee }}</td>
+            </tr>
+
+            <tr>
+                <td>Consultation Fee</td>
+                <td>0.00</td>
+            </tr>
+
+            <tr>
+                <td>Other Charges</td>
+                <td>0.00</td>
+            </tr>
+
+        </tbody>
+
+        <tfoot>
+
+            <tr>
+                <th>Total</th>
+                <th>₹ {{ patient.registration_fee }}</th>
+            </tr>
+
+        </tfoot>
+
+    </table>
+
+    <br>
+
+    <table class="payment-table">
+
+        <tr>
+            <td><strong>Payment Status</strong></td>
+            <td>{{ patient.payment_status }}</td>
+        </tr>
+
+        <tr>
+            <td><strong>OPD Status</strong></td>
+            <td>{{ patient.opd_status }}</td>
+        </tr>
+
+    </table>
+
+    <br><br>
+
+    <div class="signature">
+
+        <div>
+            ______________________
+            <br>
+            Receptionist Signature
+        </div>
+
+        <div>
+            ______________________
+            <br>
+            Authorized Signature
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="buttons">
+
+        <button onclick="window.print()">Print Invoice</button>
+
+        <a href="{% url 'updateopd' %}">
+            <button type="button">Back</button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

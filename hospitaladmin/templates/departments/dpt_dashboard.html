@@ -1,0 +1,80 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments</title>
+    <link rel="stylesheet" href="{%static 'departments/dpt_dashboard.css' %}">
+</head>
+<body>
+     <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                
+
+            </div>
+        </div>
+    </div><br>
+
+    <div class="dpt-dashboard">
+        <div class="dpt-innerdiv">
+            <h3>General Medicine Ward</h3>
+            <p>Fever,Infection,Diabates,Hypertension</p>
+            <a href="{%url 'general_ward' %}">View</a>
+        </div>
+        <div class="dpt-innerdiv">
+            <h3>Cardiac Ward</h3>
+            <p>Cardiology-- Heart and Blood Vessel Problem</p>
+            <a href="{%url 'cardic_ward' %}">View</a>
+        </div>
+        <div class="dpt-innerdiv">
+            <h3>Neuro Ward</h3>
+            <p>Neurology--Brain,Spinal,Card</p>
+            <a href="{%url 'neuro_ward'%}">View</a>
+        </div>
+        <div class="dpt-innerdiv">
+            <h3>Orthopedics</h3>
+            <p>Orthopedics — fractures, bones, joints, muscles</p>
+            <a href="{%url 'orthopedic_ward' %}">View</a>
+        </div>
+        <div class="dpt-innerdiv">
+            <h3>Child Care Ward</h3>
+            <p>Pediatrics + Neonatology — children and newborns</p>
+            <a href="{%url 'child_care_ward'%}">View</a>
+        </div>
+        <div class="dpt-innerdiv">
+            <h3>Women & Maternity Ward</h3>
+            <p>Gynecology + Obstetrics — women's health, pregnancy, childbirth</p>
+            <a href="{%url 'women_ward' %}">View</a>
+        </div>
+        <div class="dpt-innerdiv">
+            <h3>Gastro & Kidney Ward</h3>
+            <p>Gastroenterology + Nephrology + Urology — digestive, kidney, and urinary problems</p>
+            <a href="{%url 'gastro_ward'%}">View</a>
+        </div>
+        <div class="dpt-innerdiv">
+            <h3>ENT & Eye Ward</h3>
+            <p>ENT + Ophthalmology — ear, nose, throat, and eye problems</p>
+            <a href="{%url 'ent_eye_ward'%}">View</a>
+        </div>
+        <div class="dpt-innerdiv">
+            <h3>Skin & Allergy Ward</h3>
+            <p>Dermatology — skin, hair, nails, and allergies</p>
+            <a href="{%url 'skin_allery_ward' %}">View</a>
+        </div>
+        <div class="dpt-innerdiv">
+            <h3>Surgery & Emergency Ward</h3>
+            <p>General Surgery + Emergency/Critical Care — surgical and emergency cases</p>
+            <a href="{%url 'surgery_ward'%}">View</a>
+        </div>
+    </div>
+</body>
+</html>

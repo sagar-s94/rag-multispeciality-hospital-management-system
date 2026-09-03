@@ -1,0 +1,170 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General|IPD|Patients</title>
+    <link rel="stylesheet" href="{%static 'gen_ipd/gen_ipdlist.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+            </div>
+        </div>
+    </div><br>
+    <div class="ipd-list-container">
+
+        <div class="ipd-list-header">
+            <div>
+                <h2> IPD Patients</h2>
+                <p>List of patients admitted to Ward.</p>
+            </div>
+
+            <a href="{% url 'ipd_general' %}" class="add-ipd-btn">
+                + Add IPD Patient
+            </a>
+        </div>
+
+
+        <div class="ipd-table-wrapper">
+
+            <table class="ipd-table">
+
+                <thead>
+                    <tr>
+                        <th>IPD No.</th>
+                        <th>Patient Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Phone</th>
+                        <th>Doctor</th>
+                        <th>Department</th>
+                        <th>Room</th>
+                        <th>Bed</th>
+                        <th>Admission Date</th>
+                        <th>Condition</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for patient in patient %}
+
+                    <tr>
+
+                        <td>
+                            {{ patient.ipd_number }}
+                        </td>
+
+                        <td>
+                            {{ patient.first_name }}
+                            {{ patient.last_name }}
+                        </td>
+
+                        <td>
+                            {{ patient.gender }}
+                        </td>
+
+                        <td>
+                            {{ patient.age }}
+                        </td>
+
+                        <td>
+                            {{ patient.phone }}
+                        </td>
+
+                        <td>
+                            {{ patient.doctor }}
+                        </td>
+                        <td>
+                            {{ patient.department }}
+                        </td>
+
+                        <td>
+                            {{ patient.room_no }}
+                        </td>
+
+                        <td>
+                            {{ patient.bed_no }}
+                        </td>
+
+                        <td>
+                            {{ patient.admission_date }}
+                        </td>
+
+                        <td>
+                            {{ patient.patient_condition }}
+                        </td>
+
+                        <td>
+
+                            {% if patient.status == "Admitted" %}
+                            <span class="status admitted">
+                                Admitted
+                            </span>
+
+                            {% elif patient.status == "Discharged" %}
+                            <span class="status discharged">
+                                Discharged
+                            </span>
+
+                            {% else %}
+                            <span class="status transferred">
+                                Transferred
+                            </span>
+                            {% endif %}
+
+                        </td>
+
+                        <td class="action-buttons">
+
+                            <a href="{%url 'general_ipd_view' patient.id %}" class="view-btn">
+                                View
+                            </a>
+
+                            <a href="{% url 'edit_general_ipd' patient.id %}" class="edit-btn">
+                                Edit
+                            </a>
+
+                            <a href="{%url 'general_ipd_delete' patient.id %}" class="delete-btn">
+                                Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="12" class="no-data">
+                            No IPD patients found.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

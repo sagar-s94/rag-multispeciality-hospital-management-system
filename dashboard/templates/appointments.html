@@ -1,0 +1,180 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment</title>
+    <link rel="stylesheet" href="{%static 'appointment.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+
+            </div>
+        </div>
+    </div>
+
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="success-message">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+    <div class="form-div">
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Patient Name</label>
+                <input type="text" name="patient_name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" name="age" min="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <select name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" name="phone" maxlength="10" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label>Department</label>
+                <select name="department" required>
+                    <option value="">Select Department</option>
+                    <option>Cardiology</option>
+                    <option>Orthopedics</option>
+                    <option>Neurology</option>
+                    <option>Pediatrics</option>
+                    <option>General Medicine</option>
+                    <option>ENT</option>
+                    <option>Gynecology</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Preferred Doctor (Optional)</label>
+                <input type="text" name="doctor">
+            </div>
+
+            <div class="form-group">
+                <label>Preferred Date</label>
+                <input type="date" name="appointment_date" required>
+            </div>
+
+            <div class="form-group">
+                <label>Preferred Time</label>
+                <input type="time" name="appointment_time" required>
+            </div>
+
+            <div class="form-group">
+                <label>Symptoms</label>
+                <textarea name="symptoms" rows="4"></textarea>
+            </div>
+
+            <button type="submit">Book Appointment</button>
+
+        </form>
+    </div>
+
+    <footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- Hospital Info -->
+
+        <div class="footer-box">
+            <h2>RAG Multispeciality Hospital</h2>
+
+            <p>
+                Providing quality healthcare with experienced doctors,
+                advanced medical technology, and compassionate patient care.
+                Your health is our highest priority.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Departments</a></li>
+                <li><a href="#">Doctors</a></li>
+                <li><a href="#">Facilities</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Our Services -->
+
+        <div class="footer-box">
+            <h3>Our Services</h3>
+
+            <ul>
+                <li>Cardiology</li>
+                <li>Neurology</li>
+                <li>Orthopedics</li>
+                <li>Pediatrics</li>
+                <li>Emergency Care</li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
+
+        <div class="footer-box">
+            <h3>Contact Info</h3>
+
+            <p>📍 Sector 34-A, Chandigarh</p>
+            <p>📞 +91 98765 43210</p>
+            <p>✉ info@raghospital.com</p>
+            <p>🕒 Open 24×7</p>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 RAG Multispeciality Hospital. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+</body>
+
+</html>

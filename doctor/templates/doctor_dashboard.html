@@ -1,0 +1,72 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor|Dashboard</title>
+    <link rel="stylesheet" href="{%static 'doctor_dashbord.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="{% url 'doctor_profile' %}">👨‍⚕️ Profile</a>
+                <a href="{% url 'doctor_logout' %}">
+                    Logout
+                </a>
+
+            </div>
+        </div>
+    </div> <br>
+    <div class="welcome-div">
+        <h2>Welcome,<strong>Dr. {{ doctor.first_name }} {{ doctor.last_name }}</strong></h2>
+        <p></p>
+    </div>
+
+    <div class="card-divs">
+
+        <div class="dashboard-card">
+            <strong>IPD Patients</strong>
+            <a href="{%url 'ipd_patient_list' %}">View</a>
+        </div>
+
+        <div class="dashboard-card">
+            <strong>Vistors</strong>
+            <a href="{% url 'department_visitors' 'cardiac' %}">
+                 Visitors
+            </a>
+        </div>
+
+        <div class="dashboard-card">
+            <strong>Make Request</strong>
+            <a href="{%url 'make_request' %}">Request</a>
+        </div>
+        <div class="dashboard-card">
+            <strong>Request List</strong>
+            <a href="{%url 'request_list' %}">Rqt List</a>
+        </div>
+        <div class="dashboard-card">
+            <strong>Announcement</strong>
+            <a href="{%url 'announcemt_list' %}">View Announcement</a>
+        </div>
+
+
+
+    </div>
+
+    
+
+
+</body>
+
+</html>

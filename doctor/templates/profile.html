@@ -1,0 +1,92 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+</head>
+<body>
+     <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+           <a href="{% url 'doctor_logout' %}" >
+                    Logout
+                </a>
+
+            </div>
+        </div>
+    </div> <br>
+
+    <div class="profile-container">
+
+    <div class="profile-header">
+
+        {% if doctor.profile_image %}
+            <img src="{{ doctor.profile_image.url }}" 
+                 alt="Doctor Profile">
+        {% else %}
+            <div class="default-profile">
+                👨‍⚕️
+            </div>
+        {% endif %}
+
+        <div class="profile-info">
+            <h2>
+                Dr. {{ doctor.first_name }} {{ doctor.last_name }}
+            </h2>
+
+            <p>
+                {{ doctor.get_role_display }}
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="profile-details">
+
+        <div class="profile-item">
+            <span>Username</span>
+            <strong>{{ doctor.username }}</strong>
+        </div>
+
+        <div class="profile-item">
+            <span>Email</span>
+            <strong>{{ doctor.email }}</strong>
+        </div>
+
+        <div class="profile-item">
+            <span>Phone</span>
+            <strong>{{ doctor.phone }}</strong>
+        </div>
+
+        <div class="profile-item">
+            <span>Role</span>
+            <strong>{{ doctor.get_role_display }}</strong>
+        </div>
+
+        <div class="profile-item">
+            <span>Address</span>
+            <strong>{{ doctor.address }}</strong>
+        </div>
+
+    </div>
+
+    <div class="profile-actions">
+        <a href="{%url 'edit_profile' %}">
+            ✏️ Edit Profile
+        </a>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuro|Ward</title>
+    <link rel="stylesheet" href="{% static 'departments/general_ward.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+            </div>
+        </div>
+    </div><br>
+
+    <div class="header">
+        <h2>
+           Neuro Ward
+
+        </h2>
+        <p> Specialized Care for Neurological & Brain Disorders</p>
+    </div>
+    <div class="body-div">
+      
+
+        <div class="inner-div-general">
+            <strong>Doctors</strong>
+         <a href="{%url 'add_doctors' %}">Add Doctors</a>\<a href="{%url 'doctor_list' %}">List</a>
+        </div>
+
+        <div class="inner-div-general">
+            <strong>Nurses</strong>
+            <a href="{%url 'add_nurse' %}">Add  Nurses</a>\<a href="{%url 'nurse_list'%}">List</a>
+        </div>
+
+        <div class="inner-div-general">
+            <strong>Rooms</strong>
+            <a href="{%url 'add_rooms' %}">Add Rooms</a>\
+            <a href="{%url 'room_list' %}">List</a>
+        </div>
+
+        <div class="inner-div-general">
+            <strong>Ward Support Staff</strong>
+            <a href="{%url 'genral_support_staff' %}">Add Staff</a>\<a href="{%url 'suport_staff_list' %}">List</a>
+        </div>
+
+        <div class="inner-div-general">
+            <strong>OPD Patients</strong>
+            <a href="{%url 'add_opd' %}">Add OPD</a>\<a href="{%url 'opd_list' %}">List</a>
+        </div>
+
+        <div class="inner-div-general">
+            <strong>IPD Patients</strong>
+            <a href="{%url 'ipd_general'%}">Add IPD </a>\<a href="{%url 'general_ipd_list' %}">List</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

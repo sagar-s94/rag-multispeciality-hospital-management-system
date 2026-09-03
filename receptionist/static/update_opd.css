@@ -1,0 +1,409 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background: whitesmoke;
+}
+.navbar{
+    width:100%;
+    background:#0A3532;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 3%;
+    color:white;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+/* Logo */
+
+/* Desktop */
+.image-div img{
+    width: 250px;
+    height: 75px;
+    /* object-fit: contain; */
+}
+
+/* Tablet */
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .image-div img{
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* Mobile */
+@media (max-width:480px){
+
+    .image-div img{
+        width: 140px;
+        height: 140px;
+    }
+}
+
+.image-div{
+    flex-shrink: 0;
+}
+
+.image-div img{
+    display: block;
+    max-width: 100%;
+    /* object-fit: contain; */
+}
+
+/* Hospital Name */
+
+.innerdiv-one h2{
+    font-size: 40px;
+    font-weight: 700;
+    color:white ;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.innerdiv-one p{
+    font-size: 18px;
+    color: #A8E6CF;          /* Light green */
+    margin-top: 6px;
+    letter-spacing: 4px;     /* Space between letters */
+    text-transform: uppercase;
+    font-weight: 500;
+}
+@media (max-width: 768px){
+    .innerdiv-one h2{
+        font-size: 36px;
+    }
+
+    .innerdiv-one p{
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+}
+
+/* Links */
+
+.links{
+    display:flex;
+    gap:18px;
+}
+
+.links a{
+    text-decoration:none;
+    color:white;
+    padding:10px 22px;
+    border:2px solid white;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.links a:hover{
+    background:white;
+    color:#0B6E4F;
+}
+
+
+/* Tablet */
+
+
+@media(max-width:992px){
+
+    .innerdiv-one h2{
+        font-size:24px;
+    }
+
+    .image-div img{
+        width:55px;
+        height:55px;
+    }
+
+    .links a{
+        padding:8px 18px;
+        font-size:15px;
+    }
+
+}
+
+
+/* Mobile */
+
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+        padding:18px;
+    }
+
+    .innerdiv-one{
+        padding-left:0;
+    }
+
+    .innerdiv-one h2{
+        font-size:22px;
+    }
+
+    .links{
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .links a{
+        padding:10px 20px;
+        font-size:15px;
+    }
+
+}
+
+/* Extra Small Devices */
+
+@media(max-width:480px){
+
+    .image-div img{
+        width:50px;
+        height:50px;
+    }
+
+    .innerdiv-one h2{
+        font-size:18px;
+        line-height:28px;
+    }
+
+    .links{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .links a{
+        width:200px;
+        margin:auto;
+    }
+
+}
+
+.search-div{
+    width:100%;
+    margin-bottom:20px;
+}
+
+.search-div form{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.search-div input{
+    flex:1;
+    min-width:220px;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:16px;
+    outline:none;
+}
+
+.search-div input:focus{
+    border-color:#0A3532;
+}
+
+.search-div button{
+    background:#0A3532;
+    color:#fff;
+    border:none;
+    padding:12px 25px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.search-div button:hover{
+    background:#12615b;
+}
+
+/* ===== Messages ===== */
+
+.success{
+    background:#d4edda;
+    color:#155724;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:5px;
+}
+
+.error{
+    background:#f8d7da;
+    color:#721c24;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:5px;
+}
+
+/* ===== Table ===== */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    min-width:1200px;
+}
+
+table th{
+    background:#0A3532;
+    color:#fff;
+    padding:14px;
+    text-align:center;
+}
+
+table td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+table tr:nth-child(even){
+    background:#f8f8f8;
+}
+
+table tr:hover{
+    background:#eef8f7;
+}
+
+/* ===== Responsive Table ===== */
+
+.table-container{
+    width:100%;
+    overflow-x:auto;
+    border-radius:8px;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+/* ===== Edit Button ===== */
+
+.edit-btn{
+    display:inline-block;
+    background:#0A3532;
+    color:#fff;
+    padding:8px 16px;
+    text-decoration:none;
+    border-radius:5px;
+    transition:.3s;
+}
+
+.edit-btn:hover{
+    background:#12615b;
+}
+
+/* ===== Tablet ===== */
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .search-div form{
+        flex-direction:column;
+    }
+
+    .search-div input,
+    .search-div button{
+        width:100%;
+    }
+
+    table th,
+    table td{
+        padding:10px;
+        font-size:14px;
+    }
+
+}
+
+/* ===== Mobile ===== */
+
+@media(max-width:480px){
+
+    body{
+        padding:10px;
+    }
+
+    .search-div input{
+        font-size:14px;
+    }
+
+    .search-div button{
+        font-size:14px;
+    }
+
+    table th,
+    table td{
+        font-size:13px;
+        padding:8px;
+    }
+
+}
+
+.edit-btn{
+    background:#0A3532;
+    color:#fff;
+    border:none;
+    padding:8px 18px;
+    border-radius:6px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.edit-btn:hover{
+    background:#12615b;
+    transform:translateY(-2px);
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.dashboard-footer{
+    width:100%;
+    background:#0A3532;
+    color:#fff;
+    text-align:center;
+    padding:12px 20px;
+    font-size:14px;
+    margin-top:30px;
+}
+
+.dashboard-footer p{
+    margin:0;
+    letter-spacing:0.5px;
+}
+
+@media (max-width:768px){
+    .dashboard-footer{
+        font-size:13px;
+        padding:10px;
+    }
+}
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background: #b02a37;
+}

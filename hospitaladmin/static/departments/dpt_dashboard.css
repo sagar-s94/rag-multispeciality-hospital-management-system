@@ -1,0 +1,347 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background: whitesmoke;
+}
+.navbar{
+    width:100%;
+    background:#0A3532;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 3%;
+    color:white;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+/* Logo */
+
+/* Desktop */
+.image-div img{
+    width: 250px;
+    height: 75px;
+    /* object-fit: contain; */
+}
+
+/* Tablet */
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .image-div img{
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* Mobile */
+@media (max-width:480px){
+
+    .image-div img{
+        width: 140px;
+        height: 140px;
+    }
+}
+
+.image-div{
+    flex-shrink: 0;
+}
+
+.image-div img{
+    display: block;
+    max-width: 100%;
+    /* object-fit: contain; */
+}
+
+/* Hospital Name */
+
+.innerdiv-one h2{
+    font-size: 40px;
+    font-weight: 700;
+    color:white ;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.innerdiv-one p{
+    font-size: 18px;
+    color: #A8E6CF;          /* Light green */
+    margin-top: 6px;
+    letter-spacing: 4px;     /* Space between letters */
+    text-transform: uppercase;
+    font-weight: 500;
+}
+@media (max-width: 768px){
+    .innerdiv-one h2{
+        font-size: 36px;
+    }
+
+    .innerdiv-one p{
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+}
+
+/* Links */
+
+.links{
+    display:flex;
+    gap:18px;
+}
+
+.links a{
+    text-decoration:none;
+    color:white;
+    padding:10px 22px;
+    border:2px solid white;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.links a:hover{
+    background:white;
+    color:#0B6E4F;
+}
+
+
+/* Tablet */
+
+
+@media(max-width:992px){
+
+    .innerdiv-one h2{
+        font-size:24px;
+    }
+
+    .image-div img{
+        width:55px;
+        height:55px;
+    }
+
+    .links a{
+        padding:8px 18px;
+        font-size:15px;
+    }
+
+}
+
+
+/* Mobile */
+
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+        padding:18px;
+    }
+
+    .innerdiv-one{
+        padding-left:0;
+    }
+
+    .innerdiv-one h2{
+        font-size:22px;
+    }
+
+    .links{
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .links a{
+        padding:10px 20px;
+        font-size:15px;
+    }
+
+}
+
+/* Extra Small Devices */
+
+@media(max-width:480px){
+
+    .image-div img{
+        width:50px;
+        height:50px;
+    }
+
+    .innerdiv-one h2{
+        font-size:18px;
+        line-height:28px;
+    }
+
+    .links{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .links a{
+        width:200px;
+        margin:auto;
+    }
+
+}
+
+.dpt-dashboard {
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+/* Department Card */
+.dpt-innerdiv {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 22px;
+
+    min-height: 190px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+
+    transition: all 0.25s ease;
+}
+
+/* Hover */
+.dpt-innerdiv:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
+    border-color: #0b6e4f;
+}
+
+/* Heading */
+.dpt-innerdiv h3 {
+    margin: 0 0 12px 0;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    color: #222;
+    line-height: 1.4;
+}
+
+/* Description */
+.dpt-innerdiv p {
+    margin: 0;
+
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+
+    flex: 1;
+}
+
+/* View Button */
+.dpt-innerdiv a {
+    display: inline-block;
+
+    width: fit-content;
+
+    margin-top: 18px;
+    padding: 9px 18px;
+
+    background: #0b6e4f;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+.dpt-innerdiv a:hover {
+    background: #095a41;
+}
+
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 1000px) {
+
+    .dpt-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px;
+        gap: 18px;
+    }
+
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 600px) {
+
+    .dpt-dashboard {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .dpt-innerdiv {
+        padding: 18px;
+        min-height: 170px;
+    }
+
+    .dpt-innerdiv h3 {
+        font-size: 18px;
+    }
+
+    .dpt-innerdiv p {
+        font-size: 13px;
+    }
+
+    .dpt-innerdiv a {
+        padding: 9px 16px;
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================
+   Very Small Screens
+========================= */
+
+@media (max-width: 380px) {
+
+    .dpt-dashboard {
+        padding: 10px;
+    }
+
+    .dpt-innerdiv {
+        padding: 15px;
+    }
+
+    .dpt-innerdiv h3 {
+        font-size: 17px;
+    }
+
+}

@@ -1,0 +1,534 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background: whitesmoke;
+}
+.navbar{
+    width:100%;
+    background:#0A3532;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 3%;
+    color:white;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+/* Logo */
+
+/* Desktop */
+.image-div img{
+    width: 250px;
+    height: 75px;
+    /* object-fit: contain; */
+}
+
+/* Tablet */
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .image-div img{
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* Mobile */
+@media (max-width:480px){
+
+    .image-div img{
+        width: 140px;
+        height: 140px;
+    }
+}
+
+.image-div{
+    flex-shrink: 0;
+}
+
+.image-div img{
+    display: block;
+    max-width: 100%;
+    /* object-fit: contain; */
+}
+
+/* Hospital Name */
+
+.innerdiv-one h2{
+    font-size: 40px;
+    font-weight: 700;
+    color:white ;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.innerdiv-one p{
+    font-size: 18px;
+    color: #A8E6CF;          /* Light green */
+    margin-top: 6px;
+    letter-spacing: 4px;     /* Space between letters */
+    text-transform: uppercase;
+    font-weight: 500;
+}
+@media (max-width: 768px){
+    .innerdiv-one h2{
+        font-size: 36px;
+    }
+
+    .innerdiv-one p{
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+}
+
+/* Links */
+
+.links{
+    display:flex;
+    gap:18px;
+}
+
+.links a{
+    text-decoration:none;
+    color:white;
+    padding:10px 22px;
+    border:2px solid white;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.links a:hover{
+    background:white;
+    color:#0B6E4F;
+}
+
+
+/* Tablet */
+
+
+@media(max-width:992px){
+
+    .innerdiv-one h2{
+        font-size:24px;
+    }
+
+    .image-div img{
+        width:55px;
+        height:55px;
+    }
+
+    .links a{
+        padding:8px 18px;
+        font-size:15px;
+    }
+
+}
+
+
+/* Mobile */
+
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+        padding:18px;
+    }
+
+    .innerdiv-one{
+        padding-left:0;
+    }
+
+    .innerdiv-one h2{
+        font-size:22px;
+    }
+
+    .links{
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .links a{
+        padding:10px 20px;
+        font-size:15px;
+    }
+
+}
+
+/* Extra Small Devices */
+
+@media(max-width:480px){
+
+    .image-div img{
+        width:50px;
+        height:50px;
+    }
+
+    .innerdiv-one h2{
+        font-size:18px;
+        line-height:28px;
+    }
+
+    .links{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .links a{
+        width:200px;
+        margin:auto;
+    }
+
+}
+
+/* =====================================
+   IPD EDIT FORM
+===================================== */
+
+.body-div-IPD {
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+/* =====================================
+   Form Section
+===================================== */
+
+.form-section {
+    background: #ffffff;
+    padding: 25px;
+    margin-bottom: 25px;
+
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =====================================
+   Section Heading
+===================================== */
+
+.form-section h2 {
+    margin: 0 0 22px 0;
+    padding-bottom: 12px;
+
+    border-bottom: 2px solid #0b6e4f;
+
+    color: #0b6e4f;
+
+    font-size: 21px;
+    font-weight: 600;
+}
+
+
+/* =====================================
+   Form Row
+===================================== */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 18px;
+}
+
+
+/*
+   If a row contains 4 fields,
+   display 4 columns on desktop
+*/
+
+.form-row:has(.form-group:nth-child(4)) {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
+/* =====================================
+   Form Group
+===================================== */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+
+/* =====================================
+   Full Width
+===================================== */
+
+.form-group.full-width {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+
+/* =====================================
+   Labels
+===================================== */
+
+.form-group label {
+    margin-bottom: 7px;
+
+    color: #333;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =====================================
+   Inputs
+===================================== */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 11px 12px;
+
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #333;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+
+/* =====================================
+   Textarea
+===================================== */
+
+.form-group textarea {
+    min-height: 90px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+
+/* =====================================
+   Focus
+===================================== */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #0b6e4f;
+
+    box-shadow:
+        0 0 0 2px rgba(11, 110, 79, 0.10);
+}
+
+
+/* =====================================
+   Readonly Ward
+===================================== */
+
+.form-group input[readonly] {
+    background: #f1f3f3;
+    color: #555;
+
+    cursor: not-allowed;
+}
+
+
+/* =====================================
+   Form Actions
+===================================== */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 10px;
+}
+
+
+/* =====================================
+   Update Button
+===================================== */
+
+.form-actions button[type="submit"] {
+    padding: 11px 22px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #0b6e4f;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.form-actions button[type="submit"]:hover {
+    background: #095a41;
+}
+
+
+/* =====================================
+   Cancel Button
+===================================== */
+
+.form-actions .cancel-btn {
+    display: inline-block;
+
+    padding: 10px 22px;
+
+    border-radius: 6px;
+
+    background: #eeeeee;
+    color: #333333;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.form-actions .cancel-btn:hover {
+    background: #dddddd;
+}
+
+
+/* =====================================
+   Tablet
+===================================== */
+
+@media (max-width: 900px) {
+
+    .body-div-IPD {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .form-section {
+        padding: 20px;
+    }
+
+    .form-row,
+    .form-row:has(.form-group:nth-child(4)) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =====================================
+   Mobile
+===================================== */
+
+@media (max-width: 600px) {
+
+    .body-div-IPD {
+        width: 100%;
+
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+
+    .form-section {
+        padding: 16px;
+        margin-bottom: 15px;
+
+        border-radius: 8px;
+    }
+
+
+    .form-section h2 {
+        font-size: 18px;
+        margin-bottom: 18px;
+    }
+
+
+    .form-row,
+    .form-row:has(.form-group:nth-child(4)) {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .form-group.full-width {
+        margin-bottom: 15px;
+    }
+
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 10px;
+
+        font-size: 14px;
+    }
+
+
+    /* Buttons */
+
+    .form-actions {
+        flex-direction: column;
+
+        width: 100%;
+
+        gap: 10px;
+    }
+
+
+    .form-actions button[type="submit"],
+    .form-actions .cancel-btn {
+        width: 100%;
+
+        box-sizing: border-box;
+
+        text-align: center;
+
+        padding: 12px;
+    }
+}

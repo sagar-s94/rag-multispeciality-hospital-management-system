@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receptionist</title>
+    <link rel="stylesheet" href="{%static 'recep_home.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="{%url 'add_opd'%}">OPD</a>
+                <a href="{%url 'dept_dashboard' %}">Department</a>
+                <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-cards">
+
+    <div class="card">
+        <h2>Appointments</h2>
+        <a href="{%url 'appoint_list' %}">View Appointments</a>
+    </div>
+
+    <div class="card">
+        <h2>Today OPD</h2>
+        <a href="{%url 'opd_list'%}">OPD List</a>
+    </div>
+
+    <div class="card">
+        <h2>Active Ambulance</h2>
+        <a href="{%url 'ambulance_list' %}">Ambulance</a>
+    </div>
+
+    <div class="card">
+        <h2>Visitor</h2>
+        <a href="{%url 'add_visitor' %}">View Visitor</a>
+    </div>
+
+    <div class="card"> 
+        <h2>Request</h2>
+        <a href="{%url 'request_list' %}">view Request</a>
+    </div>
+
+    <div class="card">
+        <h2>Announcement</h2>
+        <a href="{%url 'announcemt_list' %}">view Announcement</a>
+    </div>
+
+</div>
+
+  <div class="form-div1">
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Patient ID</label>
+                <input type="text" name="patient_id" required>
+            </div>
+
+            <div class="form-group">
+                <label>Patient Name</label>
+                <input type="text" name="patient_name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" name="age" min="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <select name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="text" name="mobile" maxlength="10" required>
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+                <textarea name="address" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Department</label>
+                <input type="text" name="department" required>
+            </div>
+
+            <div class="form-group">
+                <label>Doctor</label>
+                <input type="text" name="doctor" required>
+            </div>
+
+            <div class="form-group">
+                <label>Visit Type</label>
+                <select name="visit_type" required>
+                    <option value="">Select Visit Type</option>
+                    <option value="New">New</option>
+                    <option value="Follow-up">Follow-up</option>
+                </select>
+            </div>
+
+            <div class="form-group full-width">
+                <label>Symptoms</label>
+                <textarea name="symptoms" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Registration Fee</label>
+                <input type="number" name="registration_fee" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Payment Status</label>
+                <select name="payment_status" required>
+                    <option value="Paid">Paid</option>
+                    <option value="Unpaid">Unpaid</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>OPD Status</label>
+                <select name="opd_status" required>
+                    <option value="Waiting">Waiting</option>
+                    <option value="In Consultation">In Consultation</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </div>
+
+            <button type="submit">Register Patient</button>
+        </form>
+
+    </div>
+
+
+        
+
+</body>
+
+
+
+</html>

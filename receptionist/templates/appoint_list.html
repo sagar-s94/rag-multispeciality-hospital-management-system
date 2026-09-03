@@ -1,0 +1,84 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment-List</title>
+    <link rel="stylesheet" href="{%static 'appoint_list.css' %}">
+</head>
+<body>
+     <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="{%url 'add_opd'%}">OPD</a>
+
+            </div>
+        </div>
+    </div>
+<div class="search-container">
+    <form method="GET" class="search-form">
+    <input type="text" name="name" placeholder="Search by Patient Name">
+
+    <input type="date" name="date">
+
+    <button type="submit">Search</button>
+</form>
+</div>
+
+    <div class="table-div">
+    <table border="1" cellspacing="0" cellpadding="10">
+
+    <tr>
+        <th>ID</th>
+        <th>Patient</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Phone</th>
+        <th>Department</th>
+        <th>Doctor</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+       
+    </tr>
+
+    {% for appointment in appointments %}
+
+    <tr>
+        <td>{{ appointment.id }}</td>
+        <td>{{ appointment.patient_name }}</td>
+        <td>{{ appointment.age }}</td>
+        <td>{{ appointment.gender }}</td>
+        <td>{{ appointment.phone }}</td>
+        <td>{{ appointment.department }}</td>
+        <td>{{ appointment.doctor }}</td>
+        <td>{{ appointment.appointment_date }}</td>
+        <td>{{ appointment.appointment_time }}</td>
+        <td>{{ appointment.status }}</td>
+
+  
+    </tr>
+
+    {% empty %}
+
+    <tr>
+        <td colspan="11">No Appointments Found</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+</div>
+
+
+      
+</body>
+</html>

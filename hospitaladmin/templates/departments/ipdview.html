@@ -1,0 +1,354 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen|IPD|View</title>
+    <link rel="stylesheet" href="{%static 'gen_ipd/gen_ipdview.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="{%url 'general_ipd_list' %}"> IPD List</a>
+            </div>
+        </div>
+    </div><br>
+
+    <div class="ipd-view-container">
+
+        <!-- Header -->
+        <div class="ipd-view-header">
+            <div>
+                <h2>IPD Patient Details</h2>
+                <p>General Medicine Ward</p>
+            </div>
+
+            <div class="header-actions">
+                <a href="{% url 'general_ipd_list' %}" class="back-btn">
+                    Back
+                </a>
+
+                <a href="{% url 'edit_general_ipd' patientid.id %}" class="edit-btn">
+                    Edit
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Patient Information -->
+        <div class="detail-section">
+
+            <h3>Patient Information</h3>
+
+            <div class="detail-grid">
+
+                <div class="detail-item">
+                    <span>IPD Number</span>
+                    <strong>{{ patientid.ipd_number }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Patient Name</span>
+                    <strong>
+                        {{ patientid.first_name }}
+                        {{ patientid.last_name }}
+                    </strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Gender</span>
+                    <strong>{{ patientid.gender }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Date of Birth</span>
+                    <strong>{{ patientid.date_of_birth|default:"-" }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Age</span>
+                    <strong>{{ patientid.age }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Blood Group</span>
+                    <strong>{{ patientid.blood_group|default:"-" }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Phone</span>
+                    <strong>{{ patientid.phone }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>City</span>
+                    <strong>{{ patientid.city|default:"-" }}</strong>
+                </div>
+
+                <div class="detail-item detail-full">
+                    <span>Address</span>
+                    <strong>{{ patientid.address }}</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Admission Information -->
+        <div class="detail-section">
+
+            <h3>Admission Information</h3>
+
+            <div class="detail-grid">
+
+                <div class="detail-item">
+                    <span>Admission Date</span>
+                    <strong>{{ patientid.admission_date }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Admission Time</span>
+                    <strong>{{ patientid.admission_time }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Admission Type</span>
+                    <strong>{{ patientid.admission_type }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Doctor</span>
+                    <strong>{{ patientid.doctor }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Ward</span>
+                    <strong>{{ patientid.ward }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Room No.</span>
+                    <strong>{{ patientid.room_no }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Bed No.</span>
+                    <strong>{{ patientid.bed_no }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Referred By</span>
+                    <strong>{{ patientid.referred_by|default:"-" }}</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Medical Information -->
+        <div class="detail-section">
+
+            <h3>Medical Information</h3>
+
+            <div class="detail-grid">
+
+                <div class="detail-item detail-full">
+                    <span>Chief Complaint</span>
+                    <strong>
+                        {{ patientid.chief_complaint|default:"-" }}
+                    </strong>
+                </div>
+
+                <div class="detail-item detail-full">
+                    <span>Symptoms</span>
+                    <strong>
+                        {{ patientid.symptoms|default:"-" }}
+                    </strong>
+                </div>
+
+                <div class="detail-item detail-full">
+                    <span>Diagnosis</span>
+                    <strong>
+                        {{ patientid.diagnosis|default:"-" }}
+                    </strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Patient Condition</span>
+
+                    {% if patientid.patient_condition == "Stable" %}
+                    <strong class="condition stable">
+                        Stable
+                    </strong>
+
+                    {% elif patientid.patient_condition == "Serious" %}
+                    <strong class="condition serious">
+                        Serious
+                    </strong>
+
+                    {% else %}
+                    <strong class="condition critical">
+                        Critical
+                    </strong>
+                    {% endif %}
+                </div>
+
+                <div class="detail-item detail-full">
+                    <span>Allergies</span>
+                    <strong>
+                        {{ patientid.allergies|default:"No known allergies" }}
+                    </strong>
+                </div>
+
+                <div class="detail-item detail-full">
+                    <span>Medical History</span>
+                    <strong>
+                        {{ patientid.medical_history|default:"-" }}
+                    </strong>
+                </div>
+
+                <div class="detail-item detail-full">
+                    <span>Current Medication</span>
+                    <strong>
+                        {{ patientid.current_medication|default:"-" }}
+                    </strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Emergency Contact -->
+        <div class="detail-section">
+
+            <h3>Emergency Contact</h3>
+
+            <div class="detail-grid">
+
+                <div class="detail-item">
+                    <span>Contact Name</span>
+                    <strong>
+                        {{ patientid.emergency_contact_name }}
+                    </strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Relationship</span>
+                    <strong>
+                        {{ patientid.emergency_contact_relation }}
+                    </strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Contact Phone</span>
+                    <strong>
+                        {{ patientid.emergency_contact_phone }}
+                    </strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Billing Information -->
+        <div class="detail-section">
+
+            <h3>Billing Information</h3>
+
+            <div class="detail-grid">
+
+                <div class="detail-item">
+                    <span>Payment Type</span>
+                    <strong>{{ patientid.payment_type }}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Insurance Company</span>
+                    <strong>
+                        {{ patientid.insurance_company|default:"-" }}
+                    </strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Policy Number</span>
+                    <strong>
+                        {{ patientid.policy_number|default:"-" }}
+                    </strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- IPD Status -->
+        <div class="detail-section">
+
+            <h3>IPD Status</h3>
+
+            <div class="detail-grid">
+
+                <div class="detail-item">
+                    <span>Status</span>
+
+                    {% if patientid.status == "Admitted" %}
+                    <strong class="status admitted">
+                        Admitted
+                    </strong>
+
+                    {% elif patientid.status == "Discharged" %}
+                    <strong class="status discharged">
+                        Discharged
+                    </strong>
+
+                    {% else %}
+                    <strong class="status transferred">
+                        Transferred
+                    </strong>
+                    {% endif %}
+                </div>
+
+                <div class="detail-item">
+                    <span>Expected Discharge Date</span>
+                    <strong>
+                        {{ patientid.expected_discharge_date|default:"-" }}
+                    </strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Discharge Date</span>
+                    <strong>
+                        {{ patientid.discharge_date|default:"-" }}
+                    </strong>
+                </div>
+
+                <div class="detail-item detail-full">
+                    <span>Discharge Notes</span>
+                    <strong>
+                        {{ patientid.discharge_notes|default:"-" }}
+                    </strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

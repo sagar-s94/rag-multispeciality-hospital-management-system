@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Registration</title>
+    <link rel="stylesheet" href="{% static 'r_form.css'%}">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="{%url 'login_form' %}">Login</a>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="body-div">
+        <div class="img-div">
+            <img src="{% static  'reg_image2.jpeg' %}">
+        </div>
+
+        <div class="register-container">
+
+            <h2>Create Account</h2>
+
+            <form method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" name="username" required>
+                </div>
+                {% if form.username.errors %}
+                <small class="error">
+                    {{ form.username.errors.0 }}
+                </small>
+                {% endif %}
+
+                <div class="row">
+
+                    <div class="input-group">
+                        <label>First Name</label>
+                        <input type="text" name="first_name" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Last Name</label>
+                        <input type="text" name="last_name" required>
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                {% if form.email.errors %}
+                <small class="error">
+                    {{ form.email.errors.0 }}
+                </small>
+                {% endif %}
+
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input type="text" name="phone" maxlength="15" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Address</label>
+                    <textarea name="address" rows="3"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>Profile Image</label>
+                    <input type="file" name="profile_image">
+                </div>
+
+                <div class="input-group">
+                    <label>Role</label>
+
+                    <select name="role" required>
+
+                        <option value="">Select Role</option>
+                        <option value="patient">Patient</option>
+                       
+                        
+                        
+
+
+
+                    </select>
+
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" name="password1" required>
+                </div>
+                {% if form.password1.errors %}
+                <small class="error">
+                    {{ form.password1.errors.0 }}
+                </small>
+                {% endif %}
+
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="password2" required>
+                </div>
+                {% if form.password2.errors %}
+                <small class="error">
+                    {{ form.password2.errors.0 }}
+                </small>
+                {% endif %}
+                <button type="submit">
+                    Register
+                </button>
+
+            </form>
+
+            <p>
+                Already have an account?
+                <a href="{%url 'login_form' %}">Login</a>
+            </p>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- Hospital Info -->
+
+            <div class="footer-box">
+                <h2>RAG Multispeciality Hospital</h2>
+
+                <p>
+                    Providing quality healthcare with experienced doctors,
+                    advanced medical technology, and compassionate patient care.
+                    Your health is our highest priority.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Departments</a></li>
+                    <li><a href="#">Doctors</a></li>
+                    <li><a href="#">Facilities</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Our Services -->
+
+            <div class="footer-box">
+                <h3>Our Services</h3>
+
+                <ul>
+                    <li>Cardiology</li>
+                    <li>Neurology</li>
+                    <li>Orthopedics</li>
+                    <li>Pediatrics</li>
+                    <li>Emergency Care</li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+
+            <div class="footer-box">
+                <h3>Contact Info</h3>
+
+                <p>📍 Sector 34-A, Chandigarh</p>
+                <p>📞 +91 98765 43210</p>
+                <p>✉ info@raghospital.com</p>
+                <p>🕒 Open 24×7</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 RAG Multispeciality Hospital. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,358 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background: whitesmoke;
+}
+.navbar{
+    width:100%;
+    background:#0A3532;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 3%;
+    color:white;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+/* Logo */
+
+/* Desktop */
+.image-div img{
+    width: 250px;
+    height: 75px;
+    /* object-fit: contain; */
+}
+
+/* Tablet */
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .image-div img{
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* Mobile */
+@media (max-width:480px){
+
+    .image-div img{
+        width: 140px;
+        height: 140px;
+    }
+}
+
+.image-div{
+    flex-shrink: 0;
+}
+
+.image-div img{
+    display: block;
+    max-width: 100%;
+    /* object-fit: contain; */
+}
+
+/* Hospital Name */
+
+.innerdiv-one h2{
+    font-size: 40px;
+    font-weight: 700;
+    color:white ;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.innerdiv-one p{
+    font-size: 18px;
+    color: #A8E6CF;          /* Light green */
+    margin-top: 6px;
+    letter-spacing: 4px;     /* Space between letters */
+    text-transform: uppercase;
+    font-weight: 500;
+}
+@media (max-width: 768px){
+    .innerdiv-one h2{
+        font-size: 36px;
+    }
+
+    .innerdiv-one p{
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+}
+
+/* Links */
+
+.links{
+    display:flex;
+    gap:18px;
+}
+
+.links a{
+    text-decoration:none;
+    color:white;
+    padding:10px 22px;
+    border:2px solid white;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.links a:hover{
+    background:white;
+    color:#0B6E4F;
+}
+
+
+/* Tablet */
+
+
+@media(max-width:992px){
+
+    .innerdiv-one h2{
+        font-size:24px;
+    }
+
+    .image-div img{
+        width:55px;
+        height:55px;
+    }
+
+    .links a{
+        padding:8px 18px;
+        font-size:15px;
+    }
+
+}
+
+
+/* Mobile */
+
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+        padding:18px;
+    }
+
+    .innerdiv-one{
+        padding-left:0;
+    }
+
+    .innerdiv-one h2{
+        font-size:22px;
+    }
+
+    .links{
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .links a{
+        padding:10px 20px;
+        font-size:15px;
+    }
+
+}
+
+/* Extra Small Devices */
+
+@media(max-width:480px){
+
+    .image-div img{
+        width:50px;
+        height:50px;
+    }
+
+    .innerdiv-one h2{
+        font-size:18px;
+        line-height:28px;
+    }
+
+    .links{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .links a{
+        width:200px;
+        margin:auto;
+    }
+
+}
+
+/* ==========================
+   OPD List
+========================== */
+
+.opd_list-div{
+    width: 100%;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.opd_list-div h2{
+    margin-bottom: 20px;
+    color: #0A3532;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Table */
+
+.opd_list-div table{
+    width: 100%;
+    min-width: 1300px;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Header */
+
+.opd_list-div th{
+    background: #0A3532;
+    color: #fff;
+    padding: 14px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Data */
+
+.opd_list-div td{
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+/* Zebra Effect */
+
+
+
+.opd_list-div tbody tr:hover{
+    background: #eef8f7;
+}
+
+/* Action Buttons */
+
+.opd_list-div td a{
+    text-decoration: none;
+    color: #0A3532;
+    font-weight: 600;
+    margin: 0 4px;
+    transition: .3s;
+}
+
+.opd_list-div td a:hover{
+    color: #0d6d65;
+}
+
+/*
+   Tablet
+ */
+
+@media(max-width:992px){
+
+    .opd_list-div{
+        padding: 15px;
+    }
+
+    .opd_list-div h2{
+        font-size: 24px;
+    }
+
+    .opd_list-div th,
+    .opd_list-div td{
+        padding: 10px;
+        font-size: 13px;
+    }
+
+}
+
+/* 
+   Mobile
+ */
+
+@media(max-width:768px){
+
+    .opd_list-div{
+        padding: 10px;
+        overflow-x: auto;
+    }
+
+    .opd_list-div h2{
+        font-size: 22px;
+    }
+
+    .opd_list-div table{
+        min-width: 1200px;
+    }
+
+    .opd_list-div::-webkit-scrollbar{
+        height: 8px;
+    }
+
+    .opd_list-div::-webkit-scrollbar-thumb{
+        background: #0A3532;
+        border-radius: 10px;
+    }
+
+}
+
+
+   /* Small Mobile */
+
+
+@media(max-width:480px){
+
+    .opd_list-div h2{
+        font-size: 20px;
+    }
+
+    .opd_list-div th,
+    .opd_list-div td{
+        font-size: 12px;
+        padding: 8px;
+    }
+
+}
+
+.dashboard-footer{
+    width:100%;
+    background:#0A3532;
+    color:#fff;
+    text-align:center;
+    padding:12px 20px;
+    font-size:14px;
+    margin-top:30px;
+}
+
+.dashboard-footer p{
+    margin:0;
+    letter-spacing:0.5px;
+}
+
+@media (max-width:768px){
+    .dashboard-footer{
+        font-size:13px;
+        padding:10px;
+    }
+}

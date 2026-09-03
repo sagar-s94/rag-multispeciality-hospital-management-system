@@ -1,0 +1,256 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add|NURSE</title>
+    <link rel="stylesheet" href="{%static 'nurse/add_nurse.css'%}">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="{%url 'nurse_list' %}">Nurses List</a>
+
+            </div>
+        </div>
+    </div><br>
+    <div class="form-container">
+
+        <div class="form-header">
+            <h2>Add Nursing Staff</h2>
+            <p>Register a new nursing staff member in the hospital.</p>
+        </div>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <!-- Personal Information -->
+            <h3 class="section-title">Personal Information</h3>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" name="first_name" placeholder="Enter first name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" placeholder="Enter last name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+                    <select name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" name="date_of_birth" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Profile Image</label>
+                    <input type="file" name="profile_image" accept="image/*">
+                </div>
+
+            </div>
+
+
+            <!-- Professional Information -->
+            <h3 class="section-title">Professional Information</h3>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Nursing Registration Number</label>
+                    <input type="text" name="registration_no" placeholder="Enter registration number" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Qualification</label>
+                    <select name="qualification" required>
+                        <option value="">Select Qualification</option>
+                        <option value="ANM">ANM</option>
+                        <option value="GNM">GNM</option>
+                        <option value="B.Sc Nursing">B.Sc Nursing</option>
+                        <option value="M.Sc Nursing">M.Sc Nursing</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Specialization</label>
+                    <input type="text" name="specialization" placeholder="e.g. Critical Care">
+                </div>
+
+                <div class="form-group">
+                    <label>Experience (Years)</label>
+                    <input type="number" name="experience" min="0" placeholder="Enter experience">
+                </div>
+
+                <div class="form-group">
+                    <label>Designation</label>
+                    <select name="designation" required>
+                        <option value="">Select Designation</option>
+                        <option value="Staff Nurse">Staff Nurse</option>
+                        <option value="Senior Staff Nurse">Senior Staff Nurse</option>
+                        <option value="Nursing Supervisor">Nursing Supervisor</option>
+                        <option value="Head Nurse">Head Nurse</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Joining Date</label>
+                    <input type="date" name="joining_date" required>
+                </div>
+
+            </div>
+
+
+            <!-- Hospital Assignment -->
+            <h3 class="section-title">Hospital Assignment</h3>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Department</label>
+                    <select name="department" required>
+                        <option value="">Select Department</option>
+                        <option value="General Medicine">General Medicine</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Neurology">Neurology</option>
+                        <option value="Orthopedics">Orthopedics</option>
+                        <option value="Pediatrics">Pediatrics</option>
+                        <option value="Gynecology">Gynecology</option>
+                        <option value="Surgery">Surgery</option>
+                        <option value="Emergency">Emergency</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Ward</label>
+                    <input type="text" name="ward" placeholder="e.g. General Medicine Ward" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Room / Station Number</label>
+                    <input type="text" name="room_no" placeholder="Enter room/station number">
+                </div>
+
+                <div class="form-group">
+                    <label>Shift</label>
+                    <select name="shift" required>
+                        <option value="">Select Shift</option>
+                        <option value="Morning">Morning</option>
+                        <option value="Evening">Evening</option>
+                        <option value="Night">Night</option>
+                        <option value="Rotational">Rotational</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Shift Start Time</label>
+                    <input type="time" name="start_time">
+                </div>
+
+                <div class="form-group">
+                    <label>Shift End Time</label>
+                    <input type="time" name="end_time">
+                </div>
+
+                <div class="form-group">
+                    <label>Employment Type</label>
+                    <select name="employment_type" required>
+                        <option value="">Select Employment Type</option>
+                        <option value="Full Time">Full Time</option>
+                        <option value="Part Time">Part Time</option>
+                        <option value="Contract">Contract</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    <select name="status" required>
+                        <option value="Active">Active</option>
+                        <option value="On Leave">On Leave</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <!-- Contact Information -->
+            <h3 class="section-title">Contact Information</h3>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" placeholder="Enter phone number" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Enter email address" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Address</label>
+                    <textarea name="address" rows="3" placeholder="Enter complete address"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" name="city" placeholder="Enter city">
+                </div>
+
+                <div class="form-group">
+                    <label>State</label>
+                    <input type="text" name="state" placeholder="Enter state">
+                </div>
+
+                <div class="form-group">
+                    <label>Pincode</label>
+                    <input type="text" name="pincode" placeholder="Enter pincode">
+                </div>
+
+            </div>
+
+
+
+
+            <!-- Buttons -->
+            <div class="form-buttons">
+
+                <button type="submit" class="btn-submit">
+                    Add Nursing Staff
+                </button>
+
+
+
+            </div>
+
+        </form>
+
+    </div>
+</body>
+
+</html>

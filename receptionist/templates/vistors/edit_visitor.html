@@ -1,0 +1,279 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit|Visitors</title>
+    <link rel="stylesheet" href="{%static 'edit_visitors.css' %}">
+</head>
+<body>
+
+<div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="{%url 'visitor_list' %}"> Visitor List</a>
+
+            </div>
+        </div>
+    </div> <br>
+<div class="visitor-form-container">
+
+    <div class="form-header">
+        <h2>Edit Visitor</h2>
+        <p>Update visitor information.</p>
+    </div>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label>Visitor Name</label>
+                <input type="text"
+                       name="visitor_name"
+                       value="{{ visitor.visitor_name }}"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="text"
+                       name="mobile"
+                       value="{{ visitor.mobile }}"
+                       maxlength="10"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+
+                <select name="gender" required>
+
+                    <option value="Male"
+                    >
+                    Male
+                    </option>
+
+                    <option value="Female"
+                    >
+                    Female
+                    </option>
+
+                    <option value="Other"
+                  >
+                    Other
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label>Visitor Type</label>
+
+                <select name="visitor_type" required>
+
+                    <option value="Patient Relative"
+                   >
+                    Patient Relative
+                    </option>
+
+                    <option value="Patient Friend"
+                   >
+                    Patient Friend
+                    </option>
+
+                    <option value="Doctor Visitor"
+                    >
+                    Doctor Visitor
+                    </option>
+
+                    <option value="Medical Representative"
+                    >
+                    Medical Representative
+                    </option>
+
+                    <option value="Vendor"
+                   >
+                    Vendor
+                    </option>
+
+                    <option value="Delivery Person"
+                    >
+                    Delivery Person
+                    </option>
+
+                    <option value="Maintenance Staff"
+                    >
+                    Maintenance Staff
+                    </option>
+
+                    <option value="Government Official"
+                  >
+                    Government Official
+                    </option>
+
+                    <option value="Job Applicant"
+                    >
+                    Job Applicant
+                    </option>
+
+                    <option value="Other"
+                   >
+                    Other
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label>Purpose</label>
+
+                <select name="purpose" required>
+
+                    <option value="Meet Patient"
+                    >
+                    Meet Patient
+                    </option>
+
+                    <option value="Meet Doctor"
+                   >
+                    Meet Doctor
+                    </option>
+
+                    <option value="Medical Representative"
+                    >
+                    Medical Representative
+                    </option>
+
+                    <option value="Equipment Delivery"
+                    >
+                    Equipment Delivery
+                    </option>
+
+                    <option value="Maintenance Work"
+                    >
+                    Maintenance Work
+                    </option>
+
+                    <option value="Interview"
+                    >
+                    Interview
+                    </option>
+
+                    <option value="Submit Documents"
+                    >
+                    Submit Documents
+                    </option>
+
+                    <option value="Collect Reports"
+                    >
+                    Collect Reports
+                    </option>
+
+                    <option value="Administrative Work"
+                    >
+                    Administrative Work
+                    </option>
+
+                    <option value="Other"
+                    >
+                    Other
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label>Patient Name</label>
+                <input type="text"
+                       name="patient_name"
+                       value="{{ visitor.patient_name }}">
+            </div>
+
+            <div class="form-group">
+                <label>Doctor Name</label>
+                <input type="text"
+                       name="doctor_name"
+                       value="{{ visitor.doctor_name }}">
+            </div>
+
+            <div class="form-group">
+                <label>Department</label>
+                <input type="text"
+                       name="department"
+                       value="{{ visitor.department }}">
+            </div>
+
+            <div class="form-group">
+                <label>No. of Visitors</label>
+                <input type="number"
+                       name="number_of_visitors"
+                       value="{{ visitor.number_of_visitors }}"
+                       min="1">
+            </div>
+
+            <div class="form-group">
+                <label>Check In</label>
+                <input type="time"
+                       name="check_in"
+                       value="{{ visitor.check_in|time:'H:i' }}"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Check Out</label>
+                <input type="time"
+                       name="check_out"
+                       value="{{ visitor.check_out|time:'H:i' }}">
+            </div>
+
+            <div class="form-group">
+                <label>Status</label>
+
+                <select name="status">
+
+                    <option value="Inside"
+                    >
+                    Inside
+                    </option>
+
+                    <option value="Left"
+                    >
+                    Left
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group full-width">
+                <label>Remarks</label>
+                <textarea name="remarks" rows="4">{{ visitor.remarks }}</textarea>
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn">
+            Update Visitor
+        </button>
+
+    </form>
+
+</div>
+
+
+</body>
+</html>

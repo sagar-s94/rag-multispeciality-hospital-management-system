@@ -1,0 +1,131 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add|Ambulance</title>
+    <link rel="stylesheet" href="{% static 'add_ambu.css' %}">
+</head>
+<body>
+     <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+               <a href="{%url 'ambulance_list' %}">List</a>
+
+            </div>
+        </div>
+    </div>
+
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert {{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+<div class="form-container">
+
+    <div class="form-header">
+        <h2>Add Ambulance</h2>
+        <p>Register a new ambulance in the hospital management system.</p>
+    </div>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label>Ambulance Number</label>
+                <input type="text"
+                       name="ambulance_no"
+                       placeholder="PB10AB1234"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Vehicle Name</label>
+                <input type="text"
+                       name="vehicle_name"
+                       placeholder="Force Traveller"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Driver Name</label>
+                <input type="text"
+                       name="driver_name"
+                       placeholder="Enter Driver Name"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Driver Mobile</label>
+                <input type="tel"
+                       name="driver_mobile"
+                       maxlength="10"
+                       placeholder="9876543210"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Vehicle Type</label>
+                <input type="text"
+                       name="vehicle_type"
+                       placeholder="Basic / ICU / Van"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Purchase Date</label>
+                <input type="date"
+                       name="purchase_date"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Status</label>
+
+                <select name="status">
+
+                    <option value="Available">Available</option>
+
+                    <option value="On Duty">On Duty</option>
+
+                    <option value="Maintenance">Maintenance</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="btn-box">
+
+            <button type="submit" class="save-btn">
+                Save Ambulance
+            </button>
+
+            <button type="reset" class="reset-btn">
+                Reset
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+</body>
+</html>

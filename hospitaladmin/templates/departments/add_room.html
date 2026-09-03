@@ -1,0 +1,87 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General|Rooms
+    </title>
+    <link rel="stylesheet" href="{%static 'gen_ipd/add_room.css'%}">
+</head>
+<body>
+     <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="{%url 'room_list' %}"> Room List</a>
+            </div>
+        </div>
+    </div><br>
+
+    <div class="room-container">
+
+    <div class="room-header">
+        <h2>Add Room & Bed</h2>
+        <p>Add a new bed to the ward.</p>
+    </div>
+
+    <form method="POST" class="room-form">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="room_number">Room Number</label>
+            <input
+                type="text"
+                id="room_number"
+                name="room_number"
+                placeholder="Enter room number"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="bed_number">Bed Number</label>
+            <input
+                type="text"
+                id="bed_number"
+                name="bed_number"
+                placeholder="Enter bed number"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="status">Bed Status</label>
+
+            <select id="status" name="status" required>
+                <option class="status available" value="available">Available</option>
+                <option class="status maintenance" value="maintenance">Maintenance</option>
+                <option class="status occupied" value="Occupied">Occupied</option>
+            </select>
+
+        </div>
+
+        <div class="form-buttons">
+
+            <button type="submit" class="save-btn">
+                Add Room & Bed
+            </button>
+
+            <a href="{% url 'room_list' %}" class="cancel-btn">
+                Cancel
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+</body>
+</html>

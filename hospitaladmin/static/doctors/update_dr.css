@@ -1,0 +1,652 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background: whitesmoke;
+}
+.navbar{
+    width:100%;
+    background:#0A3532;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 3%;
+    color:white;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+/* Logo */
+
+/* Desktop */
+.image-div img{
+    width: 250px;
+    height: 75px;
+    /* object-fit: contain; */
+}
+
+/* Tablet */
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .image-div img{
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* Mobile */
+@media (max-width:480px){
+
+    .image-div img{
+        width: 140px;
+        height: 140px;
+    }
+}
+
+.image-div{
+    flex-shrink: 0;
+}
+
+.image-div img{
+    display: block;
+    max-width: 100%;
+    /* object-fit: contain; */
+}
+
+/* Hospital Name */
+
+.innerdiv-one h2{
+    font-size: 40px;
+    font-weight: 700;
+    color:white ;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.innerdiv-one p{
+    font-size: 18px;
+    color: #A8E6CF;          /* Light green */
+    margin-top: 6px;
+    letter-spacing: 4px;     /* Space between letters */
+    text-transform: uppercase;
+    font-weight: 500;
+}
+@media (max-width: 768px){
+    .innerdiv-one h2{
+        font-size: 36px;
+    }
+
+    .innerdiv-one p{
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+}
+
+/* Links */
+
+.links{
+    display:flex;
+    gap:18px;
+}
+
+.links a{
+    text-decoration:none;
+    color:white;
+    padding:10px 22px;
+    border:2px solid white;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.links a:hover{
+    background:white;
+    color:#0B6E4F;
+}
+
+
+/* Tablet */
+
+
+@media(max-width:992px){
+
+    .innerdiv-one h2{
+        font-size:24px;
+    }
+
+    .image-div img{
+        width:55px;
+        height:55px;
+    }
+
+    .links a{
+        padding:8px 18px;
+        font-size:15px;
+    }
+
+}
+
+
+/* Mobile */
+
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+        padding:18px;
+    }
+
+    .innerdiv-one{
+        padding-left:0;
+    }
+
+    .innerdiv-one h2{
+        font-size:22px;
+    }
+
+    .links{
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .links a{
+        padding:10px 20px;
+        font-size:15px;
+    }
+
+}
+
+/* Extra Small Devices */
+
+@media(max-width:480px){
+
+    .image-div img{
+        width:50px;
+        height:50px;
+    }
+
+    .innerdiv-one h2{
+        font-size:18px;
+        line-height:28px;
+    }
+
+    .links{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .links a{
+        width:200px;
+        margin:auto;
+    }
+
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.update-doctor-container {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+    padding: 25px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.page-header {
+    margin-bottom: 22px;
+}
+
+.page-header h2 {
+    margin: 0 0 5px;
+
+    font-size: 25px;
+    color: #222;
+}
+
+.page-header p {
+    margin: 0;
+
+    font-size: 13px;
+    color: #777;
+}
+
+
+/* =========================================
+   SEARCH CARD
+========================================= */
+
+.search-card {
+    background: #ffffff;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    margin-bottom: 22px;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Search Form */
+
+.doctor-search-form {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr auto;
+
+    align-items: end;
+
+    gap: 15px;
+}
+
+
+/* Search Group */
+
+.search-group {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.search-group label {
+    margin-bottom: 7px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #444;
+}
+
+.search-group input {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ddd;
+
+    border-radius: 7px;
+
+    outline: none;
+
+    font-size: 13px;
+}
+
+.search-group input:focus {
+    border-color: #0b6e4f;
+
+    box-shadow: 0 0 0 2px rgba(11, 110, 79, 0.08);
+}
+
+
+/* Search Button */
+
+.search-btn {
+    padding: 11px 20px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #0b6e4f;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+.search-btn:hover {
+    background: #095a41;
+}
+
+
+/* =========================================
+   RESULTS
+========================================= */
+
+.doctor-results {
+    width: 100%;
+}
+
+.results-header {
+    margin-bottom: 15px;
+}
+
+.results-header h3 {
+    margin: 0;
+
+    font-size: 18px;
+
+    color: #333;
+}
+
+
+/* =========================================
+   DOCTOR GRID
+========================================= */
+
+.doctor-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================================
+   DOCTOR CARD
+========================================= */
+
+.doctor-card {
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================
+   CARD TOP
+========================================= */
+
+.doctor-card-top {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+.doctor-image,
+.doctor-placeholder {
+    width: 55px;
+    height: 55px;
+
+    min-width: 55px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+
+.doctor-placeholder {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #eef7f4;
+
+    font-size: 25px;
+}
+
+
+.doctor-name h3 {
+    margin: 0 0 5px;
+
+    font-size: 16px;
+
+    color: #222;
+}
+
+
+.doctor-name span {
+    font-size: 11px;
+
+    color: #999;
+}
+
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.doctor-details {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+
+    padding: 18px 0;
+}
+
+
+.detail-item {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.detail-item span {
+    font-size: 10px;
+
+    color: #999;
+}
+
+
+.detail-item strong {
+    font-size: 12px;
+
+    color: #444;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status {
+    width: fit-content;
+
+    padding: 4px 9px;
+
+    border-radius: 20px;
+
+    font-size: 10px !important;
+}
+
+
+.status.active {
+    background: #e7f7ee;
+
+    color: #16834a;
+}
+
+
+.status.inactive {
+    background: #fbeaea;
+
+    color: #c0392b;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.doctor-card-footer {
+    padding-top: 15px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+
+.update-btn {
+    display: block;
+
+    width: 100%;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    background: #0b6e4f;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.update-btn:hover {
+    background: #095a41;
+}
+
+
+/* =========================================
+   NO DOCTOR
+========================================= */
+
+.no-doctor {
+    background: #ffffff;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+.no-doctor-icon {
+    font-size: 45px;
+
+    margin-bottom: 10px;
+}
+
+
+.no-doctor h3 {
+    margin: 0 0 7px;
+
+    color: #333;
+}
+
+
+.no-doctor p {
+    margin: 0;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+    .update-doctor-container {
+        padding: 18px;
+    }
+
+    .doctor-search-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .search-btn {
+        grid-column: 1 / -1;
+
+        width: 100%;
+    }
+
+    .doctor-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+    .update-doctor-container {
+        padding: 12px;
+    }
+
+    .page-header h2 {
+        font-size: 21px;
+    }
+
+    .search-card {
+        padding: 15px;
+    }
+
+    .doctor-search-form {
+        grid-template-columns: 1fr;
+    }
+
+    .search-btn {
+        grid-column: auto;
+    }
+
+    .doctor-card {
+        padding: 16px;
+    }
+
+    .doctor-details {
+        grid-template-columns: 1fr;
+    }
+
+}

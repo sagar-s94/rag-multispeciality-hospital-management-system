@@ -1,0 +1,656 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background: whitesmoke;
+}
+.navbar{
+    width:100%;
+    background:#0A3532;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 3%;
+    color:white;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+/* Logo */
+
+/* Desktop */
+.image-div img{
+    width: 250px;
+    height: 75px;
+    /* object-fit: contain; */
+}
+
+/* Tablet */
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .image-div img{
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* Mobile */
+@media (max-width:480px){
+
+    .image-div img{
+        width: 140px;
+        height: 140px;
+    }
+}
+
+.image-div{
+    flex-shrink: 0;
+}
+
+.image-div img{
+    display: block;
+    max-width: 100%;
+    /* object-fit: contain; */
+}
+
+/* Hospital Name */
+
+.innerdiv-one h2{
+    font-size: 40px;
+    font-weight: 700;
+    color:white ;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.innerdiv-one p{
+    font-size: 18px;
+    color: #A8E6CF;          /* Light green */
+    margin-top: 6px;
+    letter-spacing: 4px;     /* Space between letters */
+    text-transform: uppercase;
+    font-weight: 500;
+}
+@media (max-width: 768px){
+    .innerdiv-one h2{
+        font-size: 36px;
+    }
+
+    .innerdiv-one p{
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+}
+
+/* Links */
+
+.links{
+    display:flex;
+    gap:18px;
+}
+
+.links a{
+    text-decoration:none;
+    color:white;
+    padding:10px 22px;
+    border:2px solid white;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.links a:hover{
+    background:white;
+    color:#0B6E4F;
+}
+
+
+/* Tablet */
+
+
+@media(max-width:992px){
+
+    .innerdiv-one h2{
+        font-size:24px;
+    }
+
+    .image-div img{
+        width:150px;
+        height:55px;
+    }
+
+    .links a{
+        padding:8px 18px;
+        font-size:15px;
+    }
+
+}
+
+
+/* Mobile */
+
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+        padding:18px;
+    }
+
+    .innerdiv-one{
+        padding-left:0;
+    }
+
+    .innerdiv-one h2{
+        font-size:22px;
+    }
+
+    .links{
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .links a{
+        padding:10px 20px;
+        font-size:15px;
+    }
+
+}
+
+/* Extra Small Devices */
+
+@media(max-width:480px){
+
+    .image-div img{
+        width:150px;
+        height:50px;
+    }
+
+    .innerdiv-one h2{
+        font-size:18px;
+        line-height:28px;
+    }
+
+    .links{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .links a{
+        width:200px;
+        margin:auto;
+    }
+
+}
+
+/* 
+   IPD CONTAINER
+ */
+/* =========================
+   IPD SEARCH
+========================= */
+
+.ipd-search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+/* Search Input */
+
+.ipd-search-form input {
+    width: 350px;
+    max-width: 100%;
+
+    padding: 11px 14px;
+
+    border: 1px solid #dcdcdc;
+
+    border-radius: 7px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: #333;
+
+    box-sizing: border-box;
+
+    transition: 0.3s ease;
+}
+
+
+.ipd-search-form input:focus {
+    border-color: #0b6e4f;
+
+    box-shadow: 0 0 0 3px rgba(11, 110, 79, 0.1);
+}
+
+
+.ipd-search-form input::placeholder {
+    color: #999;
+}
+
+
+/* Search Button */
+
+.ipd-search-form button {
+    padding: 11px 20px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #0b6e4f;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.ipd-search-form button:hover {
+    background: #084f3a;
+}
+
+
+/* Clear Button */
+
+.clear-search {
+    padding: 10px 16px;
+
+    background: #eeeeee;
+
+    color: #555;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    transition: 0.3s ease;
+}
+
+
+.clear-search:hover {
+    background: #dddddd;
+
+    color: #222;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .ipd-search-form {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .ipd-search-form input {
+        width: 100%;
+    }
+
+
+    .ipd-search-form button {
+        width: 100%;
+    }
+
+
+    .clear-search {
+        text-align: center;
+    }
+
+}
+
+.ipd-container {
+    width: 100%;
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* 
+   HEADER
+ */
+
+.ipd-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+.ipd-header h2 {
+    margin: 0 0 6px;
+
+    font-size: 24px;
+
+    color: #222;
+}
+
+
+.ipd-header p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #777;
+}
+
+
+/* 
+   PATIENT COUNT
+*/
+
+.patient-count {
+    padding: 10px 18px;
+
+    background: #e8f5f0;
+
+    color: #0b6e4f;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* 
+   TABLE WRAPPER
+ */
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border-radius: 8px;
+}
+
+
+/* 
+   IPD TABLE
+*/
+
+.ipd-table {
+    width: 100%;
+
+    min-width: 1050px;
+
+    border-collapse: collapse;
+
+    background: #ffffff;
+}
+
+
+/*
+   TABLE HEADER
+*/
+
+.ipd-table thead {
+    background: #0b6e4f;
+}
+
+
+.ipd-table th {
+    padding: 14px 12px;
+
+    color: #ffffff;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* 
+   TABLE BODY
+ */
+
+.ipd-table td {
+    padding: 14px 12px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    color: #444;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+}
+.make-request-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #0b6e4f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.make-request-btn:hover {
+    background: #095a41;
+}
+
+/* Patient Name */
+
+.ipd-table td strong {
+    color: #222;
+
+    font-weight: 600;
+}
+
+
+/* 
+   ROW HOVER
+*/
+
+.ipd-table tbody tr {
+    transition: 0.2s ease;
+}
+
+
+.ipd-table tbody tr:hover {
+    background: #f6faf8;
+}
+
+
+/* 
+   STATUS BADGE
+ */
+
+.status-badge {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: #fff4d6;
+
+    color: #946200;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* Admitted */
+
+.status-badge.admitted {
+    background: #e8f5f0;
+
+    color: #0b6e4f;
+}
+
+
+/* Discharged */
+
+.status-badge.discharged {
+    background: #eeeeee;
+
+    color: #666;
+}
+
+
+/* 
+ */
+
+.view-btn {
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    background: #0b6e4f;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+
+.view-btn:hover {
+    background: #084f3a;
+
+    transform: translateY(-1px);
+}
+
+
+/* 
+   NO PATIENT
+*/
+
+.no-patient {
+    padding: 40px !important;
+
+    text-align: center !important;
+
+    color: #777 !important;
+
+    font-size: 15px !important;
+}
+
+
+/* 
+   TABLET
+ */
+
+@media (max-width: 900px) {
+
+    .ipd-container {
+        padding: 20px;
+    }
+
+    .ipd-header h2 {
+        font-size: 21px;
+    }
+
+}
+
+
+/* 
+   MOBILE
+*/
+
+@media (max-width: 600px) {
+
+    .ipd-container {
+        padding: 15px;
+
+        border-radius: 10px;
+    }
+
+
+    .ipd-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .ipd-header h2 {
+        font-size: 20px;
+    }
+
+
+    .ipd-header p {
+        font-size: 13px;
+    }
+
+
+    .patient-count {
+        padding: 8px 14px;
+
+        font-size: 13px;
+    }
+
+
+    .table-wrapper {
+        margin-top: 5px;
+    }
+
+
+    .ipd-table {
+        min-width: 1050px;
+    }
+
+}

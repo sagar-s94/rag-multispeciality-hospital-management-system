@@ -1,0 +1,197 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Announcement</title>
+    <link rel="stylesheet" href="{%static 'edit_acmt.css' %}">
+
+   
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="form-box">
+
+        <h2>✏️ Edit Announcement</h2>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <!-- Title -->
+            <div class="form-group">
+
+                <label for="title">
+                    Announcement Title
+                </label>
+
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    value="{{ announcement.title }}"
+                    placeholder="Enter announcement title"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Message -->
+            <div class="form-group">
+
+                <label for="message">
+                    Message
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Enter announcement message"
+                    required
+                >{{ announcement.message }}</textarea>
+
+            </div>
+
+
+            <!-- Recipient -->
+            <div class="form-group">
+
+                <label for="recipient">
+                    Send To
+                </label>
+
+                <select
+                    id="recipient"
+                    name="recipient"
+                    required
+                >
+
+                    <option value="">
+                        Select Staff
+                    </option>
+
+                    <option value="doctor"
+                        {% if announcement.recipient == "doctor" %}selected{% endif %}>
+                        Doctor
+                    </option>
+
+                    <option value="nurse"
+                        {% if announcement.recipient == "nurse" %}selected{% endif %}>
+                        Nurse
+                    </option>
+
+                    <option value="receptionist"
+                        {% if announcement.recipient == "receptionist" %}selected{% endif %}>
+                        Receptionist
+                    </option>
+
+                    <option value="ward_receptionist"
+                        {% if announcement.recipient == "ward_receptionist" %}selected{% endif %}>
+                        Ward Receptionist
+                    </option>
+
+                    <option value="hostel_staff"
+                        {% if announcement.recipient == "hostel_staff" %}selected{% endif %}>
+                        Hostel Staff
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Priority -->
+            <div class="form-group">
+
+                <label for="priority">
+                    Priority
+                </label>
+
+                <select
+                    id="priority"
+                    name="priority"
+                    required
+                >
+
+                    <option value="normal"
+                        {% if announcement.priority == "normal" %}selected{% endif %}>
+                        Normal
+                    </option>
+
+                    <option value="important"
+                        {% if announcement.priority == "important" %}selected{% endif %}>
+                        Important
+                    </option>
+
+                    <option value="urgent"
+                        {% if announcement.priority == "urgent" %}selected{% endif %}>
+                        Urgent
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Attachment -->
+            <div class="form-group">
+
+                <label for="attachment">
+                    Attachment
+                </label>
+
+                <input
+                    type="file"
+                    id="attachment"
+                    name="attachment"
+                >
+
+                {% if announcement.attachment %}
+
+                    <div class="current-file">
+
+                        Current File:
+                        <a href="{{ announcement.attachment.url }}"
+                           target="_blank">
+                            View Attachment
+                        </a>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- Buttons -->
+            <div class="buttons">
+
+                <button
+                    type="submit"
+                    class="btn update-btn">
+                    Update Announcement
+                </button>
+
+                <a
+                    href="{% url 'announcemt_list' %}"
+                    class="btn cancel-btn">
+                    Cancel
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,108 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambulance|List</title>
+    <link rel="stylesheet" href="{%static 'abmulance.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+               
+<a href="{%url 'add_ambulance' %}">Add Ambulance</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ambulance-list">
+
+    <h2>Ambulance List</h2>
+
+    <div class="search-box">
+
+        <form method="GET">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search Ambulance Number"
+                value="{{ request.GET.search }}"
+            >
+
+            <button type="submit">Search</button>
+
+        </form>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Ambulance No</th>
+                <th>Vehicle</th>
+                <th>Driver</th>
+                <th>Mobile</th>
+                <th>Vehicle Type</th>
+                <th>Purchase Date</th>
+                <th>Status</th>
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for i in ambulance %}
+
+            <tr>
+
+                <td>{{ i.id }}</td>
+                <td>{{ i.ambulance_no }}</td>
+                <td>{{ i.vehicle_name }}</td>
+                <td>{{ i.driver_name }}</td>
+                <td>{{ i.driver_mobile }}</td>
+                <td>{{ i.vehicle_type }}</td>
+                <td>{{ i.purchase_date }}</td>
+                <td>{{ i.status }}</td>
+
+                <td>
+<a href="{%url 'ambulance_delete' i.id %}">Delete</a>
+                </td>
+
+            </tr>
+
+            {% empty %}
+
+            <tr>
+
+                <td colspan="9">
+                    No Ambulance Found.
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>

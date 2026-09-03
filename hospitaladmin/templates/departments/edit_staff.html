@@ -1,0 +1,262 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General|edit|staff</title>
+    <link rel="stylesheet" href="{%static 'gen_ipd/edit_staff.css' %}">
+</head>
+<body>
+     <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="{%url 'genral_support_staff' %}"> Add List</a>
+            </div>
+        </div>
+    </div><br>
+<div class="edit-staff-container">
+
+    <div class="edit-header">
+
+        <h2>Edit Ward Staff</h2>
+
+        <p>
+            Update support staff information.
+        </p>
+
+    </div>
+
+
+    <form method="POST" class="staff-form">
+
+        {% csrf_token %}
+
+
+        <!-- Staff Name -->
+
+        <div class="form-group">
+
+            <label for="name">
+                Staff Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                value="{{ edit.name }}"
+                placeholder="Enter staff name"
+                required
+            >
+
+        </div>
+
+
+        <!-- Staff Type -->
+
+        <div class="form-group">
+
+            <label for="staff_type">
+                Staff Type
+            </label>
+
+            <select
+                id="staff_type"
+                name="staff_type"
+                required
+            >
+
+                <option value="">
+                    Select Staff Type
+                </option>
+
+                <option value="ward_boy"
+                    {% if edit.staff_type == "ward_boy" %}
+                        selected
+                    {% endif %}>
+                    Ward Boy
+                </option>
+
+                <option value="cleaning"
+                    {% if edit.staff_type == "cleaning" %}
+                        selected
+                    {% endif %}>
+                    Cleaning Worker
+                </option>
+
+                <option value="housekeeping"
+                    {% if edit.staff_type == "housekeeping" %}
+                        selected
+                    {% endif %}>
+                    Housekeeping
+                </option>
+
+                <option value="attendant"
+                    {% if edit.staff_type == "attendant" %}
+                        selected
+                    {% endif %}>
+                    Attendant
+                </option>
+
+                <option value="security"
+                    {% if edit.staff_type == "security" %}
+                        selected
+                    {% endif %}>
+                    Security
+                </option>
+
+                <option value="other"
+                    {% if edit.staff_type == "other" %}
+                        selected
+                    {% endif %}>
+                    Other
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Phone -->
+
+        <div class="form-group">
+
+            <label for="phone">
+                Phone
+            </label>
+
+            <input
+                type="text"
+                id="phone"
+                name="phone"
+                value="{{ edit.phone }}"
+                placeholder="Enter phone number"
+                required
+            >
+
+        </div>
+
+
+        <!-- Shift -->
+
+        <div class="form-group">
+
+            <label for="shift">
+                Shift
+            </label>
+
+            <select
+                id="shift"
+                name="shift"
+                required
+            >
+
+                <option value="">
+                    Select Shift
+                </option>
+
+                <option value="morning"
+                    {% if edit.shift == "morning" %}
+                        selected
+                    {% endif %}>
+                    Morning
+                </option>
+
+                <option value="evening"
+                    {% if edit.shift == "evening" %}
+                        selected
+                    {% endif %}>
+                    Evening
+                </option>
+
+                <option value="night"
+                    {% if edit.shift == "night" %}
+                        selected
+                    {% endif %}>
+                    Night
+                </option>
+
+                <option value="rotational"
+                    {% if edit.shift == "rotational" %}
+                        selected
+                    {% endif %}>
+                    Rotational
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Status -->
+
+        <div class="form-group">
+
+            <label for="status">
+                Status
+            </label>
+
+            <select
+                id="status"
+                name="status"
+                required
+            >
+
+                <option value="active"
+                    {% if edit.status == "active" %}
+                        selected
+                    {% endif %}>
+                    Active
+                </option>
+
+                <option value="on_leave"
+                    {% if edit.status == "on_leave" %}
+                        selected
+                    {% endif %}>
+                    On Leave
+                </option>
+
+                <option value="inactive"
+                    {% if edit.status == "inactive" %}
+                        selected
+                    {% endif %}>
+                    Inactive
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="form-buttons">
+
+            <button
+                type="submit"
+                class="update-btn">
+                Update Staff
+            </button>
+
+            <a
+                href="{% url 'suport_staff_list' %}"
+                class="cancel-btn">
+                Cancel
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

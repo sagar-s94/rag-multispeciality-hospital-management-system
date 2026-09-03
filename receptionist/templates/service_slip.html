@@ -1,0 +1,352 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service|slip</title>
+    <link rel="stylesheet" href="{%static 'service_slip.css' %}">
+</head>
+<body>
+     
+
+    <div class="page">
+
+    <!-- Print Button -->
+    <div class="top-actions">
+        <button onclick="window.print()" class="print-btn">
+            🖨 Print Slip
+        </button>
+
+        <button onclick="window.close()" class="close-btn">
+            Close
+        </button>
+    </div>
+
+
+   
+
+    <div class="slip">
+
+        <!-- Hospital Header -->
+
+        <div class="hospital-header">
+
+            <div class="hospital-logo">
+                RAG
+            </div>
+
+            <div class="hospital-info">
+
+                <h1>RAG MULTISPECIALITY HOSPITAL</h1>
+
+                <p>
+                    Advanced Healthcare & Diagnostic Centre
+                </p>
+
+                <p>
+                    Firozepur, Punjab
+                </p>
+
+                <p class="contact">
+                    Phone: +91 9914613763 |
+                    Email: hospital@example.com
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Slip Title -->
+
+        <div class="slip-title">
+
+            <h2>SERVICE CONFIRMATION SLIP</h2>
+
+            <span>
+                LAB / DIAGNOSTIC DEPARTMENT
+            </span>
+
+        </div>
+
+
+        <!-- Request Information -->
+
+        <div class="request-info">
+
+            <div>
+                <strong>Request ID:</strong>
+
+                <span>
+                    SR-{{ service.id }}
+                </span>
+            </div>
+
+            <div>
+                <strong>Date:</strong>
+
+                <span>
+                    {{ service.created_at|date:"d-m-Y" }}
+                </span>
+            </div>
+
+            <div>
+                <strong>Time:</strong>
+
+                <span>
+                    {{ service.created_at|date:"h:i A" }}
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- Patient Details -->
+
+        <div class="section">
+
+            <div class="section-title">
+                Patient Information
+            </div>
+
+            <div class="details-grid">
+
+                <div class="detail">
+                    <label>Patient Name</label>
+                    <span>{{ service.patient }}</span>
+                </div>
+
+                <div class="detail">
+                    <label>Patient ID / UHID</label>
+                    <span>
+                        {% if service.patient.id %}
+                            {{ service.patient.id }}
+                        {% else %}
+                            __________
+                        {% endif %}
+                    </span>
+                </div>
+
+                <div class="detail">
+                    <label>Age</label>
+                    <span>__________</span>
+                </div>
+
+                <div class="detail">
+                    <label>Gender</label>
+                    <span>__________</span>
+                </div>
+
+                <div class="detail">
+                    <label>Ward / Department</label>
+                    <span>__________</span>
+                </div>
+
+                <div class="detail">
+                    <label>Bed No.</label>
+                    <span>__________</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Doctor Details -->
+
+        <div class="section">
+
+            <div class="section-title">
+                Doctor Information
+            </div>
+
+            <div class="details-grid">
+
+                <div class="detail">
+                    <label>Doctor Name</label>
+                    <span>
+                        {{ service.doctor }}
+                    </span>
+                </div>
+
+                <div class="detail">
+                    <label>Department</label>
+                    <span>
+                        __________________
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Service Details -->
+
+        <div class="section">
+
+            <div class="section-title">
+                Requested Service
+            </div>
+
+            <table class="service-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Service</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td class="service-name">
+                            {{ service.service }}
+                        </td>
+
+                        <td>
+                            <span class="priority">
+                                {{ service.priority|upper }}
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="status">
+                                {{ service.status|upper }}
+                            </span>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- Instructions -->
+
+        <div class="section">
+
+            <div class="section-title">
+                Special Instructions
+            </div>
+
+            <div class="instruction-box">
+                Please perform the requested investigation and attach
+                the physical report with this slip.
+            </div>
+
+        </div>
+
+
+        <!-- Lab Section -->
+
+        <div class="section">
+
+            <div class="section-title">
+                Laboratory / Diagnostic Department
+            </div>
+
+            <div class="lab-grid">
+
+                <div>
+                    <label>Received By</label>
+                    <div class="line"></div>
+                </div>
+
+                <div>
+                    <label>Received Date</label>
+                    <div class="line"></div>
+                </div>
+
+                <div>
+                    <label>Received Time</label>
+                    <div class="line"></div>
+                </div>
+
+                <div>
+                    <label>Technician</label>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Report Section -->
+
+        <div class="section report-section">
+
+            <div class="section-title">
+                Physical Report / Result
+            </div>
+
+            <div class="report-box">
+
+            </div>
+
+        </div>
+
+
+        <!-- Signatures -->
+
+        <div class="signature-section">
+
+            <div class="signature">
+
+                <div class="signature-line"></div>
+
+                <p>Doctor Signature</p>
+
+            </div>
+
+
+            <div class="signature">
+
+                <div class="signature-line"></div>
+
+                <p>Lab Technician Signature</p>
+
+            </div>
+
+
+            <div class="signature">
+
+                <div class="signature-line"></div>
+
+                <p>Authorized Signature</p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Footer -->
+
+        <div class="slip-footer">
+
+            <p>
+                This slip is system generated and should be carried
+                with the patient/service request.
+            </p>
+
+            <p>
+                RAG Multispeciality Hospital © 2026
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,206 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin|Home</title>
+    <link rel="stylesheet" href="{% static 'admin_home.css' %}">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="dashboard-top">
+
+        <div class="header-div">
+            <h2>RAG Multispeciality Hospital</h2>
+            <p>Hospital Administration Dashboard</p> <br>
+
+
+
+        </div>
+
+
+    </div>
+    <br>
+
+    <div class="div-manu">
+        <div class="inner-div"><a href="{% url 'logout' %}" class="logout-btn">Logout</a></div>
+        <div class="inner-div"> <a href="{%url 'dept_dashboard'%}">Departments</a></div>
+        <div class="inner-div">
+
+            <a href="{% url 'Admin_home' %}">Dashboard</a>
+        </div>
+
+        <div class="inner-div"> <a href="{%url 'admin_register' %}">Register</a></div>
+
+        <div class="inner-div"> <a href="">Patients</a></div>
+        <div class="inner-div"> <a href="{%url 'add_doctors'%}">Doctors</a></div>
+
+        <div class="inner-div"> <a href="">Billing</a></div>
+
+
+
+
+
+    </div> <br>
+
+
+
+
+
+
+
+    <!-- QUICK ACTIONS -->
+    <div class="quick-actions">
+
+        
+
+   <div class="inner-quick-action">   <a href="">
+            <span>➕</span>
+            Add Patient
+        </a></div>
+
+       <div class="inner-quick-action"> <a href="{% url 'add_doctors' %}">
+            <span>👨‍⚕️</span>
+            Add Doctor
+        </a></div>
+
+     <div class="inner-quick-action">   <a href="{%url 'add_nurse' %}"><span>👩‍⚕️</span>Add Nurse</a></div>
+
+      <div class="inner-quick-action">  <a href="{%url 'appoint_list' %}">
+            <span>📅</span>
+            Appointment
+        </a></div>
+
+     <div class="inner-quick-action">   <a href="{%url 'add_ambulance' %}">
+            <span>🚑</span>
+            Add Ambulance
+        </a></div>
+
+     <div class="inner-quick-action">   <a href="">
+            <span>📊</span>
+            View Reports
+        </a></div>
+      <div class="inner-quick-action">  <a href="{%url 'create_announcement' %}">📢 Announcement</a></div>
+      <div class="inner-quick-action">  <a href="{%url 'announcemt_list' %}">📢 Announcement List</a></div>
+      <div class="inner-quick-action"><a href="{%url 'lab_home'%}">🧪 Lab Technician</a> </div>
+    </div> 
+
+    <div class="container">
+
+    <form method="POST"
+          enctype="multipart/form-data"
+          class="announcement-form">
+
+        {% csrf_token %}
+
+        <h2>📢 Create Announcement</h2>
+
+        <!-- Title -->
+        <div class="form-group">
+            <label for="title">Announcement Title</label>
+
+            <input type="text"
+                   id="title"
+                   name="title"
+                   placeholder="Enter announcement title"
+                   required>
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+            <label for="message">Message</label>
+
+            <textarea id="message"
+                      name="message"
+                      placeholder="Enter announcement message"
+                      required></textarea>
+        </div>
+
+        <!-- Recipient -->
+        <div class="form-group">
+            <label for="recipient">Send To</label>
+
+            <select id="recipient"
+                    name="recipient"
+                    required>
+
+                <option value="">Select Staff</option>
+
+                <option value="doctor">
+                    Doctor
+                </option>
+
+                <option value="nurse">
+                    Nurse
+                </option>
+
+                <option value="receptionist">
+                    Receptionist
+                </option>
+
+                <option value="ward_receptionist">
+                    Ward Receptionist
+                </option>
+
+                <option value="hostel_staff">
+                    Hostel Staff
+                </option>
+
+            </select>
+        </div>
+
+        <!-- Priority -->
+        <div class="form-group">
+            <label for="priority">Priority</label>
+
+            <select id="priority"
+                    name="priority"
+                    required>
+
+                <option value="normal">
+                    Normal
+                </option>
+
+                <option value="important">
+                    Important
+                </option>
+
+                <option value="urgent">
+                    Urgent
+                </option>
+
+            </select>
+        </div>
+
+        <!-- Attachment -->
+        <div class="form-group">
+            <label for="attachment">Attachment</label>
+
+            <input type="file"
+                   id="attachment"
+                   name="attachment">
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn">
+            Publish Announcement
+        </button>
+
+    </form>
+
+</div>
+
+
+
+
+
+
+
+    <script src="{% static 'admin_nav.js' %}"></script>
+</body>
+
+</html>

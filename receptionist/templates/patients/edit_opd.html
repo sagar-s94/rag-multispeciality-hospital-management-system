@@ -1,0 +1,126 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit|OPD</title>
+    <link rel="stylesheet" href="{%static 'edit_opd.css' %}">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="{%url 'opd_list'%}">OPD List</a>
+
+            </div>
+        </div>
+    </div>
+   <br>
+    <div class="edit-opd-container">
+
+    <h2>Edit OPD Registration</h2>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Patient ID</label>
+            <input type="text" value="{{ edit.patient_id }}" readonly>
+        </div>
+
+        <div class="form-group">
+            <label>Patient Name</label>
+            <input type="text" name="patient_name" value="{{ edit.patient_name }}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Age</label>
+            <input type="number" name="age" value="{{ edit.age }}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <select name="gender">
+                <option value="Male" >Male</option>
+                <option value="Female" >Female</option>
+                <option value="Other" >Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Mobile</label>
+            <input type="text" name="mobile" value="{{ edit.mobile }}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Address</label>
+            <textarea name="address">{{ edit.address }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Department</label>
+            <input type="text" name="department" value="{{ edit.department }}">
+        </div>
+
+        <div class="form-group">
+            <label>Doctor</label>
+            <input type="text" name="doctor" value="{{ edit.doctor }}">
+        </div>
+
+        <div class="form-group">
+            <label>Visit Type</label>
+            <select name="visit_type">
+                <option value="New" >New</option>
+                <option value="Follow Up" >Follow Up</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Symptoms</label>
+            <textarea name="symptoms">{{ edit.symptoms }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Registration Fee</label>
+            <input type="number" name="registration_fee" value="{{ edit.registration_fee }}">
+        </div>
+
+        <div class="form-group">
+            <label>Payment Status</label>
+            <select name="payment_status">
+                <option value="Paid" >Paid</option>
+                <option value="Pending" >Pending</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>OPD Status</label>
+            <select name="opd_status">
+                <option value="Waiting" >Waiting</option>
+                <option value="Consulted" >Consulted</option>
+                <option value="Completed" >Completed</option>
+            </select>
+        </div>
+
+        <button type="submit">Update OPD</button>
+
+    </form>
+
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,369 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background: whitesmoke;
+}
+.navbar{
+    width:100%;
+    background:#0A3532;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 3%;
+    color:white;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+/* Logo */
+
+/* Desktop */
+.image-div img{
+    width: 250px;
+    height: 75px;
+    /* object-fit: contain; */
+}
+
+/* Tablet */
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .image-div img{
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* Mobile */
+@media (max-width:480px){
+
+    .image-div img{
+        width: 140px;
+        height: 140px;
+    }
+}
+
+.image-div{
+    flex-shrink: 0;
+}
+
+.image-div img{
+    display: block;
+    max-width: 100%;
+    /* object-fit: contain; */
+}
+
+/* Hospital Name */
+
+.innerdiv-one h2{
+    font-size: 40px;
+    font-weight: 700;
+    color:white ;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.innerdiv-one p{
+    font-size: 18px;
+    color: #A8E6CF;          /* Light green */
+    margin-top: 6px;
+    letter-spacing: 4px;     /* Space between letters */
+    text-transform: uppercase;
+    font-weight: 500;
+}
+@media (max-width: 768px){
+    .innerdiv-one h2{
+        font-size: 36px;
+    }
+
+    .innerdiv-one p{
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+}
+
+/* Links */
+
+.links{
+    display:flex;
+    gap:18px;
+}
+
+.links a{
+    text-decoration:none;
+    color:white;
+    padding:10px 22px;
+    border:2px solid white;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.links a:hover{
+    background:white;
+    color:#0B6E4F;
+}
+
+
+/* Tablet */
+
+
+@media(max-width:992px){
+
+    .innerdiv-one h2{
+        font-size:24px;
+    }
+
+    .image-div img{
+        width:150px;
+        height:55px;
+    }
+
+    .links a{
+        padding:8px 18px;
+        font-size:15px;
+    }
+
+}
+
+
+/* Mobile */
+
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+        padding:18px;
+    }
+
+    .innerdiv-one{
+        padding-left:0;
+    }
+
+    .innerdiv-one h2{
+        font-size:22px;
+    }
+
+    .links{
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .links a{
+        padding:10px 20px;
+        font-size:15px;
+    }
+
+}
+
+/* Extra Small Devices */
+
+@media(max-width:480px){
+
+    .image-div img{
+        width:150px;
+        height:50px;
+    }
+
+    .innerdiv-one h2{
+        font-size:18px;
+        line-height:28px;
+    }
+
+    .links{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .links a{
+        width:200px;
+        margin:auto;
+    }
+
+}
+
+.request-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    box-sizing: border-box;
+
+    background: #ffffff;
+    border-radius: 14px;
+
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Header */
+
+.request-header {
+    margin-bottom: 25px;
+}
+
+.request-header h2 {
+    margin: 0 0 8px;
+
+    font-size: 25px;
+    color: #222;
+}
+
+.request-header p {
+    margin: 0;
+
+    font-size: 14px;
+    color: #777;
+}
+
+
+/* Form */
+
+.request-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* Form Group */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+/* Label */
+
+.form-group label {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #333;
+}
+
+
+/* Select & Textarea */
+
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d8d8d8;
+
+    border-radius: 7px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #333;
+
+    font-size: 14px;
+
+    transition: 0.3s ease;
+}
+
+
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color: #0b6e4f;
+
+    box-shadow:
+        0 0 0 3px rgba(11, 110, 79, 0.1);
+}
+
+
+/* Textarea */
+
+.form-group textarea {
+    resize: vertical;
+
+    min-height: 120px;
+}
+
+
+/* Submit */
+
+.form-actions {
+    margin-top: 5px;
+}
+
+
+.form-actions button {
+
+    padding: 12px 25px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #0b6e4f;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.form-actions button:hover {
+
+    background: #084f3a;
+
+    transform: translateY(-2px);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .request-container {
+
+        margin: 15px;
+
+        padding: 20px;
+
+        width: auto;
+    }
+
+
+    .request-header h2 {
+
+        font-size: 21px;
+    }
+
+
+    .form-actions button {
+
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,155 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Announcement</title>
+    <link rel="stylesheet" href="{% static 'accouncemnt.css' %}">
+
+   
+</head>
+
+<body>
+
+    <div class="dashboard-top">
+
+        <div class="header-div">
+            <h2>RAG Multispeciality Hospital</h2>
+            <p>Hospital Administration Dashboard</p> <br>
+
+
+
+        </div>
+
+      
+    </div>
+
+
+    <div class="div-manu">
+
+        <div class="inner-div">
+            <a href="{% url 'Admin_home' %}">Dashboard</a>
+            <a href="{%url 'admin_register' %}">Register</a>
+            <a href="{%url 'dept_dashboard'%}">Departments</a>
+            <a href="">Patients</a>
+            <a href="{%url 'add_doctors'%}">Doctors</a>
+            
+            <a href="">Billing</a>
+        </div>
+
+
+
+
+    </div> <br>
+
+
+<div class="container">
+
+    <form method="POST"
+          enctype="multipart/form-data"
+          class="announcement-form">
+
+        {% csrf_token %}
+
+        <h2>📢 Create Announcement</h2>
+
+        <!-- Title -->
+        <div class="form-group">
+            <label for="title">Announcement Title</label>
+
+            <input type="text"
+                   id="title"
+                   name="title"
+                   placeholder="Enter announcement title"
+                   required>
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+            <label for="message">Message</label>
+
+            <textarea id="message"
+                      name="message"
+                      placeholder="Enter announcement message"
+                      required></textarea>
+        </div>
+
+        <!-- Recipient -->
+        <div class="form-group">
+            <label for="recipient">Send To</label>
+
+            <select id="recipient"
+                    name="recipient"
+                    required>
+
+                <option value="">Select Staff</option>
+
+                <option value="doctor">
+                    Doctor
+                </option>
+
+                <option value="nurse">
+                    Nurse
+                </option>
+
+                <option value="receptionist">
+                    Receptionist
+                </option>
+
+                <option value="ward_receptionist">
+                    Ward Receptionist
+                </option>
+
+                <option value="hostel_staff">
+                    Hostel Staff
+                </option>
+
+            </select>
+        </div>
+
+        <!-- Priority -->
+        <div class="form-group">
+            <label for="priority">Priority</label>
+
+            <select id="priority"
+                    name="priority"
+                    required>
+
+                <option value="normal">
+                    Normal
+                </option>
+
+                <option value="important">
+                    Important
+                </option>
+
+                <option value="urgent">
+                    Urgent
+                </option>
+
+            </select>
+        </div>
+
+        <!-- Attachment -->
+        <div class="form-group">
+            <label for="attachment">Attachment</label>
+
+            <input type="file"
+                   id="attachment"
+                   name="attachment">
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn">
+            Publish Announcement
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
+

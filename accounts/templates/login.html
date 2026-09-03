@@ -1,0 +1,165 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="image-div">
+            <img src="{%static 'images/h_logo.png' %}">
+        </div>
+        <div class="innerdiv-one">
+            <h2>RAG </h2>
+            <p>Multispeciality Hospital</p>
+        </div>
+        <div class="innerdiv-two">
+            <div class="links">
+                <a href="{%url 'register_form' %}">Register</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="outer-div">
+        <div class="login-container">
+
+            <h2>Login</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+
+     
+
+                <!-- Username -->
+
+                <div class="input-group">
+
+                    <label>Username</label>
+
+                    <input type="text" name="username" value="{{ form.username.value|default:'' }}" required>
+
+                </div>
+
+                {% if form.username.errors %}
+                <small class="error">
+                    {{ form.username.errors.0 }}
+                </small>
+                {% endif %}
+
+                <!-- Password -->
+
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <input type="password" name="password" required>
+
+                </div>
+
+                {% if form.password.errors %}
+                <small class="error">
+                    {{ form.password.errors.0 }}
+                </small>
+                {% endif %}
+
+                <!-- Login Error -->
+
+                {% if form.non_field_errors %}
+                <small class="error">
+                    {{ form.non_field_errors.0 }}
+                </small>
+                {% endif %}
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+            <p>
+                Don't have an account?
+                <a href="{% url 'register_form' %}">
+                    Register
+                </a>
+            </p>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- Hospital Info -->
+
+            <div class="footer-box">
+                <h2>RAG Multispeciality Hospital</h2>
+
+                <p>
+                    Providing quality healthcare with experienced doctors,
+                    advanced medical technology, and compassionate patient care.
+                    Your health is our highest priority.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Departments</a></li>
+                    <li><a href="#">Doctors</a></li>
+                    <li><a href="#">Facilities</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Our Services -->
+
+            <div class="footer-box">
+                <h3>Our Services</h3>
+
+                <ul>
+                    <li>Cardiology</li>
+                    <li>Neurology</li>
+                    <li>Orthopedics</li>
+                    <li>Pediatrics</li>
+                    <li>Emergency Care</li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+
+            <div class="footer-box">
+                <h3>Contact Info</h3>
+
+                <p>📍 Sector 34-A, Chandigarh</p>
+                <p>📞 +91 98765 43210</p>
+                <p>✉ info@raghospital.com</p>
+                <p>🕒 Open 24×7</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 RAG Multispeciality Hospital. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
