@@ -51,7 +51,7 @@ def login_form(request):
                 return redirect("lab_home")
 
             elif user.role == "pharmacist":
-                return redirect("pharmacy_dashboard")
+                return redirect("https://rag-pharmaceutical-7.onrender.com")
 
             elif user.role == "patient":
                 return redirect("patient_dashboard")
