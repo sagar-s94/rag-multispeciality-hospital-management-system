@@ -8,7 +8,7 @@ urlpatterns = [
     path("opd_list/",views.opd_list,name="opd_list"),
     path("update_opd/",views.Update_opd,name="updateopd"),
     path("edit_opd/<int:id>/",views.edit_opd,name="edit_opd"),
-    path("opd/delete/<int:patient_id>/", views.delete_opd, name="delete_opd"),
+    path("opd/delete/<str:patient_id>/", views.delete_opd, name="delete_opd"),
 
     path("generate_invoice/<str:patient_id>/",views.generate_invoice,name="generate_invoice"),
 
