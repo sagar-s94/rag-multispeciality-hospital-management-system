@@ -10,7 +10,7 @@ urlpatterns = [
     path("edit_opd/<int:id>/",views.edit_opd,name="edit_opd"),
     path("opd/delete/<int:patient_id>/", views.delete_opd, name="delete_opd"),
 
-    path("generate_invoice/<int:patient_id>/",views.generate_invoice,name="generate_invoice"),
+    path("generate_invoice/<str:patient_id>/",views.generate_invoice,name="generate_invoice"),
 
     #ambulaance
     path("add_ambulance/",views.add_ambulance,name="add_ambulance"),
