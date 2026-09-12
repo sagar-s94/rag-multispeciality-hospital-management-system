@@ -133,7 +133,10 @@ font-size: large;
     color: #0A3532;
     
 }
-
+.head-cantainer{
+    display:flex;
+    flex-direction:column;
+    
 
 .quick-actions h3{
     font-size: larger;
