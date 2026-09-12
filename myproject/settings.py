@@ -28,6 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://rag-multispeciality-hospital.onrender.com",
+]
+
 
 # Application definition
 
